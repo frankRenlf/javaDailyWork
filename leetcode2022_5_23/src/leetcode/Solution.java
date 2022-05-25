@@ -1,7 +1,9 @@
 package leetcode;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 /**
  * Created with IntelliJ IDEA.
@@ -86,6 +88,62 @@ public class Solution {
             return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
         }
     }
+
+    public boolean isSubtree(TreeNode s, TreeNode t) {
+        return dfs(s, t);
+    }
+
+    public boolean dfs(TreeNode s, TreeNode t) {
+        if (s == null) {
+            return false;
+        }
+        return check(s, t) || dfs(s.left, t) || dfs(s.right, t);
+    }
+
+    public boolean check(TreeNode s, TreeNode t) {
+        if (s == null && t == null) {
+            return true;
+        }
+        if (s == null || t == null || s.val != t.val) {
+            return false;
+        }
+        return check(s.left, t.left) && check(s.right, t.right);
+    }
+
+    public void levelOrder(TreeNode root) {
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            TreeNode tmp = queue.poll();
+            if (tmp.left != null) {
+                queue.add(tmp.left);
+            }
+            if (tmp.right != null) {
+                queue.add(tmp.right);
+            }
+            System.out.println(tmp.val);
+        }
+    }
+
+//    public boolean isSubtree2(TreeNode s, TreeNode t) {
+//        Queue<TreeNode> queue = new LinkedList<>();
+//        queue.add(s);
+//        isSameTreePro(s,t);
+//        while (!queue.isEmpty()) {
+//            TreeNode tmp = queue.poll();
+//            if(tmp!=null){
+//                isSameTreePro(tmp,t);
+//            }
+//            if (tmp.left != null) {
+//                queue.add(tmp.left);
+//            }
+//            if (tmp.right != null) {
+//                queue.add(tmp.right);
+//            }
+//            System.out.println(tmp.val);
+//        }
+//    }
+
 
 
 }
