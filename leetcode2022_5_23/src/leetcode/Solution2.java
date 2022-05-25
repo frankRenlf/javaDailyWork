@@ -64,4 +64,21 @@ public class Solution2 {
         return height(root) >= 0;
     }
 
+    public boolean isSymmetric(TreeNode root) {
+        if(root==null){
+            return true;
+        }
+        return check(root.left,root.right);
+    }
+
+    public boolean check(TreeNode leftRoot, TreeNode rightRoot) {
+        if (leftRoot == null && rightRoot == null) {
+            return true;
+        }
+        if (leftRoot == null || rightRoot == null) {
+            return false;
+        }
+        return leftRoot.val == rightRoot.val && check(leftRoot.left, rightRoot.right) && check(rightRoot.left, leftRoot.right);
+    }
+
 }
