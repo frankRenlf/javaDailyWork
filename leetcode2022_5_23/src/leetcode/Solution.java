@@ -52,4 +52,27 @@ public class Solution {
         return l;
     }
 
+    public boolean key = true;
+
+    public void preOrder(TreeNode rootA, TreeNode rootB) {
+        if (rootA == null && rootB == null) {
+            return;
+        } else if (rootA != null && rootB != null) {
+            if (rootA.val == rootB.val) {
+                preOrder(rootA.left, rootB.left);
+                preOrder(rootA.right, rootB.right);
+            } else {
+                key = false;
+            }
+        } else {
+            key = false;
+            return;
+        }
+    }
+
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+        preOrder(p, q);
+        return key;
+    }
+
 }
