@@ -128,13 +128,35 @@ public class Solution {
         return pRootOfTree;
     }
 
-    public TreeNode buildProcess(int[] preorder, int pi, int[] inorder, int is, int ie) {
+    int pi = 0;
+
+    public TreeNode buildProcess(int[] preorder, int[] inorder, int is, int ie) {
         if (is > ie) return null;
 
+        TreeNode root = new TreeNode(preorder[pi]);
+
+        int rootIndex = findInorderIndex(inorder, is, ie, preorder[pi]);
+        pi++;
+        if (rootIndex == -1) {
+            return null;
+        }
+        root.left = buildProcess(preorder, inorder, is, rootIndex - 1);
+        root.right = buildProcess(preorder, inorder, rootIndex + 1, ie);
+
+        return root;
+    }
+
+    private int findInorderIndex(int[] inorder, int is, int ie, int val) {
+        for (int i = is; i <= ie; i++) {
+            if (inorder[i] == val) {
+                return i;
+            }
+        }
+        return -1; // no such val
     }
 
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-        return buildProcess(preorder, 0, inorder, 0, inorder.length - 1);
+        return buildProcess(preorder, inorder, 0, inorder.length - 1);
     }
 
 
