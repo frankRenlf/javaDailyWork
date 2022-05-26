@@ -130,6 +130,15 @@ public class Solution {
 
     int pi = 0;
 
+    public void swap(int[] preorder) {
+        int len = preorder.length;
+        for (int i = 0, j = len - 1; i < len; i++, j--) {
+            int tmp = preorder[i];
+            preorder[i] = preorder[j];
+            preorder[j] = tmp;
+        }
+    }
+
     public TreeNode buildProcess(int[] preorder, int[] inorder, int is, int ie) {
         if (is > ie) return null;
 
@@ -156,6 +165,7 @@ public class Solution {
     }
 
     public TreeNode buildTree(int[] preorder, int[] inorder) {
+//        swap(preorder);
         return buildProcess(preorder, inorder, 0, inorder.length - 1);
     }
 
