@@ -22,6 +22,24 @@ public class Solution {
 //    public Stack<Integer> stack1;
 //    public Stack<Integer> stack2;
 
+    int index = 0;
+    public TreeNode createTree(String dest){
+        // 根 左子树 右子树
+        TreeNode root = new TreeNode(dest.charAt(index));
+        index++;
+        if(dest.charAt(index) != '#') root.left = createTree(dest);
+        index++;
+        if(dest.charAt(index) != '#') root.right = createTree(dest);
+        return root;
+    }
+
+    public void InfixOrder(TreeNode root){
+        if(root == null) return;
+        InfixOrder(root.left);
+        System.out.print(root.val + " ");
+        InfixOrder(root.right);
+    }
+
     public boolean getPath(TreeNode root, TreeNode node, Stack<TreeNode> stack) {
         if (root == null || node == null) {
             return false;
@@ -80,4 +98,34 @@ public class Solution {
             return leftNode;
         } else return rightNode;
     }
+
+
+    TreeNode pre = null;
+
+    public void inOrder(TreeNode p) {
+        if (p == null) {
+            return;
+        }
+        inOrder(p.left);
+        p.left = pre;
+        if (pre != null) {
+            pre.right = p;
+        }
+        pre = p;
+
+        inOrder(p.right);
+    }
+
+    public TreeNode Convert(TreeNode pRootOfTree) {
+        if (pRootOfTree == null) {
+            return null;
+        }
+        inOrder(pRootOfTree);
+        while (pRootOfTree.left != null) {
+            pRootOfTree = pRootOfTree.left;
+        }
+        return pRootOfTree;
+    }
+
+
 }

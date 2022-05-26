@@ -1,3 +1,8 @@
+import leetcode.Solution;
+import leetcode.TreeNode;
+
+import java.util.Scanner;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -11,4 +16,14 @@
  * @Description :
  */
 public class App {
+
+
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+        Scanner scanner = new Scanner(System.in);
+        String dest = scanner.nextLine();
+
+        TreeNode root = sol.createTree(dest);
+        sol.InfixOrder(root);
+    }
 }
