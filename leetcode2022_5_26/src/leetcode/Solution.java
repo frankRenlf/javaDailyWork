@@ -2,8 +2,8 @@ package leetcode;
 
 import com.sun.source.tree.Tree;
 
-import java.util.Objects;
-import java.util.Stack;
+import java.util.*;
+
 
 /**
  * Created with IntelliJ IDEA.
@@ -169,5 +169,77 @@ public class Solution {
         return buildProcess(preorder, inorder, 0, inorder.length - 1);
     }
 
+
+    public String tree2str(TreeNode root) {
+        if (root == null) {
+            return "";
+        }
+        if (root.left == null && root.right == null) {
+            return Integer.toString(root.val);
+        }
+        if (root.right == null) {
+            return new StringBuffer()
+                    .append(root.val)
+                    .append("(")
+                    .append(tree2str(root.left))
+                    .append(")").toString();
+        }
+        return new StringBuffer()
+                .append(root.val)
+                .append("(")
+                .append(tree2str(root.left))
+                .append(")(")
+                .append(tree2str(root.right))
+                .append(")").toString();
+    }
+
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> ret = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+
+        TreeNode cur = root;
+        while (!stack.isEmpty() || cur != null) {
+            while (cur != null) {
+                ret.add(cur.val);
+                stack.push(cur);
+                cur = cur.left;
+            }
+            cur = stack.pop().right;
+        }
+        return ret;
+    }
+
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> ret = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+
+        TreeNode cur = root;
+        while (!stack.isEmpty() || cur != null) {
+            while (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            }
+            TreeNode tmp = stack.pop();
+            ret.add(tmp.val);
+            cur = tmp.right;
+        }
+        return ret;
+    }
+
+    public List<Integer> postorderTraversal(TreeNode root) {
+        LinkedList<Integer> ret = new LinkedList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        while (root != null || !stack.isEmpty()) {
+            if (root != null) {
+                stack.push(root);
+                ret.addFirst(root.val);
+                root = root.right;
+            } else {
+                root = stack.pop();
+                root = root.left;
+            }
+        }
+        return ret;
+    }
 
 }
