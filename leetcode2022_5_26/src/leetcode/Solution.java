@@ -23,18 +23,19 @@ public class Solution {
 //    public Stack<Integer> stack2;
 
     int index = 0;
-    public TreeNode createTree(String dest){
+
+    public TreeNode createTree(String dest) {
         // 根 左子树 右子树
         TreeNode root = new TreeNode(dest.charAt(index));
         index++;
-        if(dest.charAt(index) != '#') root.left = createTree(dest);
+        if (dest.charAt(index) != '#') root.left = createTree(dest);
         index++;
-        if(dest.charAt(index) != '#') root.right = createTree(dest);
+        if (dest.charAt(index) != '#') root.right = createTree(dest);
         return root;
     }
 
-    public void InfixOrder(TreeNode root){
-        if(root == null) return;
+    public void InfixOrder(TreeNode root) {
+        if (root == null) return;
         InfixOrder(root.left);
         System.out.print(root.val + " ");
         InfixOrder(root.right);
@@ -125,6 +126,15 @@ public class Solution {
             pRootOfTree = pRootOfTree.left;
         }
         return pRootOfTree;
+    }
+
+    public TreeNode buildProcess(int[] preorder, int pi, int[] inorder, int is, int ie) {
+        if (is > ie) return null;
+
+    }
+
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        return buildProcess(preorder, 0, inorder, 0, inorder.length - 1);
     }
 
 
