@@ -242,4 +242,27 @@ public class Solution {
         return ret;
     }
 
+    public List<Integer> postorderTraversal2(TreeNode root) {
+        List<Integer> ret = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+
+        TreeNode cur = root;
+        TreeNode pre = null;
+        while (cur != null || !stack.isEmpty()) {
+            while (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            }
+            TreeNode top = stack.peek();
+            if (top.right == null || top.right == pre) {
+                ret.add(stack.pop().val);
+                pre = top;
+            } else {
+                cur = top.right;
+            }
+        }
+
+        return ret;
+    }
+
 }
