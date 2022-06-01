@@ -31,6 +31,16 @@ class Person implements Comparable<Person> {
 public class App {
 
     public static void main(String[] args) {
+        PriorityQueue<Person> priorityQueue = new PriorityQueue<>();
+        priorityQueue.offer(new Person("frank", 1));
+        priorityQueue.offer(new Person("frank", 3));
+        priorityQueue.offer(new Person("frank", 2));
+        priorityQueue.stream().sorted();
+        System.out.println(priorityQueue);
+
+    }
+
+    public static void main1(String[] args) {
         List<Person> linkList = new ArrayList<>();
         Person person1 = new Person("frank", 2);
         Person person2 = new Person("frank", 3);
