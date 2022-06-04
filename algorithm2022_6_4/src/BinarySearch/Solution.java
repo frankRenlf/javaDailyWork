@@ -14,9 +14,29 @@ package BinarySearch;
  */
 public class Solution {
 
+    public int peakIndexInMountainArray(int[] arr) {
+
+    }
+
+    public int searchInsert(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length - 1;
+        while (left <= right) {
+            int mid = left + ((right - left) >>> 1);
+            if (nums[mid] > target) {
+                right = mid - 1;
+            } else if (nums[mid] < target) {
+                left = mid + 1;
+            } else {
+                return mid;
+            }
+        }
+        return left;
+    }
+
     public int search(int[] nums, int target) {
         int left = 0;
-        int right = nums.length-1;
+        int right = nums.length - 1;
         while (left <= right) {
             int mid = left + ((right - left) >>> 1);
             if (nums[mid] > target) {
@@ -30,21 +50,23 @@ public class Solution {
         return -1;
     }
 
-    public int guessNumber(int n) {
-        int left = 0;
-        int right = n;
-        while(left<=right){
-            int mid = left+((right-left)>>>1);
-            // one method given by leetcode
-            if(guess(mid)==-1){
-                right=mid-1;
-            }else if(guess(mid)==0){
-                return mid;
-            }else{
-                left=mid+1;
-            }
-        }
-        return 0;
-    }
+    /**
+     public int guessNumber(int n) {
+     int left = 0;
+     int right = n;
+     while(left<=right){
+     int mid = left+((right-left)>>>1);
+     // one method given by leetcode
+     if(guess(mid)==-1){
+     right=mid-1;
+     }else if(guess(mid)==0){
+     return mid;
+     }else{
+     left=mid+1;
+     }
+     }
+     return 0;
+     }
+     */
 
 }
