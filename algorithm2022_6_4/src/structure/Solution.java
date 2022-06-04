@@ -1,5 +1,9 @@
 package structure;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -7,43 +11,21 @@ package structure;
  * @version : 1.0
  * @Project : algorithm2022_6_4
  * @Package : structure
- * @createTime : 2022/6/4 12:16
+ * @createTime : 2022/6/4 12:29
  * @Email : sc19lr@leeds.ac.uk
  * @github : https://github.com/frankRenlf?tab=overview&from=2022-04-01&to=2022-04-30
  * @Description :
  */
-class Solution {
+public class Solution {
 
-    public int fib(int n) {
-        if (n < 2) {
-            return n;
+    public boolean containsDuplicate(int[] nums) {
+        Set<Integer> hashSet = new HashSet<>();
+        for(int x:nums){
+            if(!hashSet.add(x)){
+                return true;
+            }
         }
-        int pre = 0;
-        int cur = 1;
-        for (int i = 1; i < n; i++) {
-            int tmp = cur;
-            cur += pre;
-            pre = tmp;
-        }
-        return cur;
+        return false;
     }
 
-    public int tribonacci(int n) {
-        if (n < 2) {
-            return n;
-        }
-        if (n == 2) {
-            return 1;
-        }
-        int a = 0;
-        int b = 1;
-        int c = 1;
-        for (int i = 2; i < n; i++) {
-            int tmp = c;
-            c += a + b;
-            a = b;
-            b = tmp;
-        }
-        return c;
-    }
 }

@@ -1,3 +1,5 @@
+import dp.Solution;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -11,4 +13,10 @@
  * @Description :
  */
 public class App {
+
+    public static void main(String[] args) {
+        dp.Solution solution = new dp.Solution();
+        System.out.println(solution.maxSubArray(new int[]{1, 3, 5, -10, 2}));
+    }
+
 }
