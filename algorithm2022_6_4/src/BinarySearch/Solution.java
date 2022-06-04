@@ -14,8 +14,18 @@ package BinarySearch;
  */
 public class Solution {
 
-    public int peakIndexInMountainArray(int[] arr) {
-
+    public int peakIndexInMountainArray(int[] nums) {
+        int left = 1;
+        int right = nums.length - 2;
+        while (left < right) {
+            int mid = left + ((right - left) >>> 1);
+            if (nums[mid] > nums[mid + 1]) {
+                right = mid;
+            } else if (nums[mid] < nums[mid + 1]) {
+                left = mid + 1;
+            }
+        }
+        return right;
     }
 
     public int searchInsert(int[] nums, int target) {
