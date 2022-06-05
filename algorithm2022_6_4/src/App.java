@@ -15,6 +15,11 @@ import dp.Solution;
 public class App {
 
     public static void main(String[] args) {
+        dp.Solution solution = new Solution();
+        System.out.println(solution.climbStairs(4));
+    }
+
+    public static void main1(String[] args) {
         dp.Solution solution = new dp.Solution();
         System.out.println(solution.maxSubArray(new int[]{1, 3, 5, -10, 2}));
     }

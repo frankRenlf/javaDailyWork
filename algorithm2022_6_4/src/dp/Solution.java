@@ -57,4 +57,33 @@ public class Solution {
         }
         return max;
     }
+
+
+    public int climbStairs(int n) {
+        if (n <= 2) {
+            return n;
+        }
+        int pre = 1;
+        int cur = 2;
+        int mx = 2;
+        for (int i = 2; i < n; i++) {
+            mx = pre + cur;
+            pre = cur;
+            cur = mx;
+        }
+        return mx;
+    }
+
+    public int minCostClimbingStairs(int[] cost) {
+        int len = cost.length;
+        if (len == 1) {
+            return cost[0];
+        }
+        int pre = cost[0];
+        int cur = cost[1];
+        int mn = Math.min(pre + cost[2], cur + cost[2]);
+        for (int i = 2; i < len; i++) {
+
+        }
+    }
 }
