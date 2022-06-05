@@ -74,16 +74,32 @@ public class Solution {
         return mx;
     }
 
-    public int minCostClimbingStairs(int[] cost) {
+    public int minCostClimbingStairs1(int[] cost) {
         int len = cost.length;
         if (len == 1) {
             return cost[0];
         }
         int pre = cost[0];
         int cur = cost[1];
-        int mn = Math.min(pre + cost[2], cur + cost[2]);
+        int mn = 0;
         for (int i = 2; i < len; i++) {
-
+            mn = Math.min(pre + cost[i], cur + cost[i]);
+            pre = cur;
+            cur = mn;
         }
+        return Math.min(pre, cur);
+    }
+
+    public int minCostClimbingStairs2(int[] cost) {
+        int len = cost.length;
+        int pre = 0;
+        int cur = 0;
+        int next = 0;
+        for (int i = 2; i <= len; i++) {
+            next = Math.min(pre + cost[i - 2], cur + cost[i - 1]);
+            pre = cur;
+            cur = next;
+        }
+        return next;
     }
 }

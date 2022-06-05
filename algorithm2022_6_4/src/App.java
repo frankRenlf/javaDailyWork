@@ -16,7 +16,7 @@ public class App {
 
     public static void main(String[] args) {
         dp.Solution solution = new Solution();
-        System.out.println(solution.climbStairs(4));
+        System.out.println(solution.minCostClimbingStairs2(new int[]{1,3,5,2}));
     }
 
     public static void main1(String[] args) {
