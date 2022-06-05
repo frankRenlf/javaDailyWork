@@ -1,4 +1,4 @@
-import dp.Solution;
+import java.util.Arrays;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,8 +15,14 @@ import dp.Solution;
 public class App {
 
     public static void main(String[] args) {
-        dp.Solution solution = new Solution();
-        System.out.println(solution.minCostClimbingStairs2(new int[]{1,3,5,2}));
+        structure.Solution solution = new structure.Solution();
+        System.out.println(Arrays.toString(solution.twoSum(new int[]{1, 4, 6, 8, 9}, 10)));
+
+    }
+
+    public static void main2(String[] args) {
+        dp.Solution solution = new dp.Solution();
+        System.out.println(solution.minCostClimbingStairs2(new int[]{1, 3, 5, 2}));
     }
 
     public static void main1(String[] args) {
