@@ -1,3 +1,5 @@
+import BinarySearch.Solution;
+
 import java.util.Arrays;
 
 /**
@@ -15,6 +17,11 @@ import java.util.Arrays;
 public class App {
 
     public static void main(String[] args) {
+        BinarySearch.Solution sol = new Solution();
+        System.out.println(sol.isPerfectSquare(16));
+    }
+
+    public static void main3(String[] args) {
         structure.Solution solution = new structure.Solution();
         System.out.println(Arrays.toString(solution.twoSum(new int[]{1, 4, 6, 8, 9}, 10)));
 
