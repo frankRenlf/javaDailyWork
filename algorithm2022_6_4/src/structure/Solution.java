@@ -1,5 +1,6 @@
 package structure;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
@@ -40,7 +41,25 @@ public class Solution {
     }
 
     public void merge(int[] nums1, int m, int[] nums2, int n) {
+        if (n >= 0) System.arraycopy(nums2, 0, nums1, m, n);
+        Arrays.sort(nums1);
+    }
 
+    public void merge2(int[] nums1, int m, int[] nums2, int n) {
+        int e1 = m - 1;
+        int e2 = n - 1;
+        int tail = m + n - 1;
+        while (e1 >= 0 || e2 >= 0) {
+            if (e1 < 0) {
+                nums1[tail--] = nums2[e2--];
+            } else if (e2 < 0) {
+                break;
+            } else if (nums1[e1] < nums2[e2]) {
+                nums1[tail--] = nums2[e2--];
+            } else {
+                nums1[tail--] = nums1[e1--];
+            }
+        }
     }
 
 }
