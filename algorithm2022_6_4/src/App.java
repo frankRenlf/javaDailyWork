@@ -34,7 +34,7 @@ public class App {
 
     public static void main(String[] args) {
         dp.Solution solution = new dp.Solution();
-        System.out.println(solution.rob2(new int[]{1, 10, 5, 5, 3}));
+        System.out.println(solution.deleteAndEarn(new int[]{1, 10, 2, 5, 5, 3}));
     }
 
 }

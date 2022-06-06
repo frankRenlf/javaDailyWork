@@ -145,4 +145,18 @@ public class Solution {
         }
         return Math.max(cal(nums, 0, len - 2), cal(nums, 1, len - 1));
     }
+
+    public int deleteAndEarn(int[] nums) {
+        int minVal = nums[0];
+        int maxVal = nums[0];
+        for (int x : nums) {
+            minVal = Math.min(x, minVal);
+            maxVal = Math.max(maxVal, x);
+        }
+        int[] sum = new int[maxVal - minVal + 1];
+        for (int num : nums) {
+            sum[num - minVal] += num;
+        }
+        return rob(sum);
+    }
 }
