@@ -17,6 +17,11 @@ import java.util.Arrays;
 public class App {
 
     public static void main(String[] args) {
+        BinarySearch.Solution sol = new Solution();
+        System.out.println(sol.nextGreatestLetter(new char[]{'a','b','c'},'b'));
+    }
+
+    public static void main5(String[] args) {
         structure.Solution sol = new structure.Solution();
         System.out.println(Arrays.toString(sol.intersect(new int[]{1, 1, 2, 3, 4}, new int[]{1, 1, 4, 5})));
         System.out.println();

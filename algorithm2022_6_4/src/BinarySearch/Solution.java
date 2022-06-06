@@ -14,6 +14,65 @@ package BinarySearch;
  */
 public class Solution {
 
+    public char nextGreatestLetter(char[] letters, char target) {
+        int right = letters.length - 1;
+        if (letters[right] <= target) {
+            return letters[0];
+        }
+        int left = 0;
+        int mid = 0;
+        while (left < right) {
+            mid = (right + left) / 2;
+            if (letters[mid] > target) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return letters[right];
+    }
+
+    public int mySqrt2(int x) {
+        if (x <= 1) {
+            return x;
+        }
+        int left = 1;
+        int right = x / 2;
+        int mid = left + ((right - left) >>> 1);
+        ;
+        while (left <= right) {
+            if (mid > x / mid) {
+                right = mid - 1;
+            } else if (mid == x / mid) {
+                return mid;
+            } else {
+                left = mid + 1;
+            }
+            mid = (right + left) / 2;
+        }
+        return mid;
+    }
+
+    public int mySqrt(int x) {
+        if (x <= 1) {
+            return x;
+        }
+        int left = 1;
+        int right = x / 2;
+        int mid = left + ((right - left) >>> 1);
+        while (left <= right) {
+            mid = left + ((right - left) >>> 1);
+            if (mid > x / mid) {
+                right = mid - 1;
+            } else if (mid == x / mid) {
+                return mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return right;
+    }
+
     public int findTheDistanceValue(int[] arr1, int[] arr2, int d) {
         int cnt = 0;
         for (int x : arr1) {
