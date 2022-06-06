@@ -16,7 +16,7 @@ import java.util.Arrays;
  */
 public class App {
 
-    public static void main(String[] args) {
+    public static void main4(String[] args) {
         BinarySearch.Solution sol = new Solution();
         System.out.println(sol.isPerfectSquare(16));
     }
@@ -32,9 +32,9 @@ public class App {
         System.out.println(solution.minCostClimbingStairs2(new int[]{1, 3, 5, 2}));
     }
 
-    public static void main1(String[] args) {
+    public static void main(String[] args) {
         dp.Solution solution = new dp.Solution();
-        System.out.println(solution.maxSubArray(new int[]{1, 3, 5, -10, 2}));
+        System.out.println(solution.rob(new int[]{1, 10, 5, 5, 3}));
     }
 
 }

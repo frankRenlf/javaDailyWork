@@ -102,4 +102,20 @@ public class Solution {
         }
         return next;
     }
+
+    public int rob(int[] nums) {
+        int len = nums.length;
+        if(len==1){
+            return nums[0];
+        }
+        int pre = nums[0];
+        int cur = Math.max(pre, nums[1]);
+        int next = 0;
+        for (int i = 2; i < len; i++) {
+            next = Math.max(pre + nums[i], cur);
+            pre = cur;
+            cur = next;
+        }
+        return next;
+    }
 }
