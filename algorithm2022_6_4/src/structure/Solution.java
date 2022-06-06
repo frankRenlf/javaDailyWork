@@ -19,6 +19,13 @@ import java.util.Set;
  */
 public class Solution {
 
+    public int[] intersect(int[] nums1, int[] nums2) {
+        HashMap<Integer,Integer> hashMap = new HashMap<>();
+        for(int x:nums1){
+
+        }
+    }
+
     public boolean containsDuplicate(int[] nums) {
         Set<Integer> hashSet = new HashSet<>();
         for (int x : nums) {
