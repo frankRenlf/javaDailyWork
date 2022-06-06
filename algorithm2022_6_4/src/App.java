@@ -16,6 +16,12 @@ import java.util.Arrays;
  */
 public class App {
 
+    public static void main(String[] args) {
+        structure.Solution sol = new structure.Solution();
+        System.out.println(Arrays.toString(sol.intersect(new int[]{1, 1, 2, 3, 4}, new int[]{1, 1, 4, 5})));
+        System.out.println();
+    }
+
     public static void main4(String[] args) {
         BinarySearch.Solution sol = new Solution();
         System.out.println(sol.isPerfectSquare(16));
@@ -32,7 +38,7 @@ public class App {
         System.out.println(solution.minCostClimbingStairs2(new int[]{1, 3, 5, 2}));
     }
 
-    public static void main(String[] args) {
+    public static void main1(String[] args) {
         dp.Solution solution = new dp.Solution();
         System.out.println(solution.deleteAndEarn(new int[]{1, 10, 2, 5, 5, 3}));
     }

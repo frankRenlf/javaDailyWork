@@ -20,10 +20,26 @@ import java.util.Set;
 public class Solution {
 
     public int[] intersect(int[] nums1, int[] nums2) {
-        HashMap<Integer,Integer> hashMap = new HashMap<>();
-        for(int x:nums1){
-
+        HashMap<Integer, Integer> hashMap = new HashMap<>();
+        for (int x : nums1) {
+            if (!hashMap.containsKey(x)) {
+                hashMap.put(x, 1);
+            } else {
+                hashMap.replace(x, hashMap.get(x) + 1);
+            }
         }
+        int[] ret = new int[nums1.length];
+        int index = 0;
+        for (int j : nums2) {
+            if (hashMap.containsKey(j)) {
+                hashMap.replace(j, hashMap.get(j) - 1);
+                ret[index++] = j;
+                if (hashMap.get(j) == 0) {
+                    hashMap.remove(j);
+                }
+            }
+        }
+        return Arrays.copyOf(ret, index);
     }
 
     public boolean containsDuplicate(int[] nums) {
