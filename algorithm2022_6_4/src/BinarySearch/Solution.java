@@ -14,6 +14,51 @@ package BinarySearch;
  */
 public class Solution {
 
+    public int[] searchRange2(int[] nums, int target) {
+        if (nums.length == 0) return new int[]{-1, -1};
+
+        int l = 0, r = nums.length - 1; //二分范围
+        while (l < r)                    //查找元素的开始位置
+        {
+            int mid = (l + r) / 2;
+            if (nums[mid] >= target) r = mid;
+            else l = mid + 1;
+        }
+        if (nums[r] != target) return new int[]{-1, -1}; //查找失败
+        int L = r;
+        l = 0;
+        r = nums.length - 1;     //二分范围
+        while (l < r)                    //查找元素的结束位置
+        {
+            int mid = (l + r + 1) / 2;
+            if (nums[mid] <= target) l = mid;
+            else r = mid - 1;
+        }
+        return new int[]{L, r};
+    }
+
+    private int search2(int[] nums, int t) {
+        int left = 0;
+        int right = nums.length - 1;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] > t) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return right;
+    }
+
+    public int[] searchRange(int[] nums, int target) {
+        int l = search2(nums, target - 1);
+        if (nums[l] != target) {
+            return new int[]{-1, -1};
+        }
+        return new int[]{l, search2(nums, target) - 1};
+    }
+
     public char nextGreatestLetter(char[] letters, char target) {
         int right = letters.length - 1;
         if (letters[right] <= target) {

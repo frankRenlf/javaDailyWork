@@ -19,14 +19,11 @@ public class Solution {
         int rightMost = 0;
         int end = 0;
         int step = 0;
-        for (int i = 0; i < len - 1; i++) {
+        for (int i = 0; end < len - 1; i++) {
             rightMost = Math.max(rightMost, i + nums[i]);
             if (i == end) {
                 end = rightMost;
                 step++;
-                if (end >= len - 1) {
-                    return step;
-                }
             }
         }
         return step;

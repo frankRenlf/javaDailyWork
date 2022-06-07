@@ -1,4 +1,5 @@
 import BinarySearch.Solution;
+import org.w3c.dom.ls.LSOutput;
 
 import java.util.Arrays;
 
@@ -17,6 +18,11 @@ import java.util.Arrays;
 public class App {
 
     public static void main(String[] args) {
+        BinarySearch.Solution sol = new Solution();
+        System.out.println(Arrays.toString(sol.searchRange(new int[]{5, 7, 7, 8, 8, 10}, 8)));
+    }
+
+    public static void main7(String[] args) {
         dp.Solution sol = new dp.Solution();
         System.out.println(sol.jump(new int[]{2, 3, 1, 1, 4}));
 
