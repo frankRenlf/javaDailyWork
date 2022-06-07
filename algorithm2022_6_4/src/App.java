@@ -17,6 +17,12 @@ import java.util.Arrays;
 public class App {
 
     public static void main(String[] args) {
+        dp.Solution sol = new dp.Solution();
+        System.out.println(sol.jump(new int[]{2, 3, 1, 1, 4}));
+
+    }
+
+    public static void main6(String[] args) {
         BinarySearch.Solution sol = new Solution();
         System.out.println(sol.nextGreatestLetter(new char[]{'a','b','c'},'b'));
     }
