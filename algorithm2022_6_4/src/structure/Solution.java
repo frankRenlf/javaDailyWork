@@ -1,9 +1,6 @@
 package structure;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -18,6 +15,36 @@ import java.util.Set;
  * @Description :
  */
 public class Solution {
+
+    public List<List<Integer>> generate(int numRows) {
+        List<List<Integer>> ret = new ArrayList<>();
+        for (int i = 0; i < numRows; i++) {
+            List<Integer> list = new ArrayList<>();
+            for (int j = 0; j <= i; j++) {
+                if (j == 0 || j == i) {
+                    list.add(1);
+                } else {
+                    list.add(ret.get(i - 1).get(j - 1) + ret.get(i - 1).get(j));
+                }
+            }
+            ret.add(list);
+        }
+        return ret;
+    }
+
+    public int[][] matrixReshape(int[][] nums, int r, int c) {
+        int m = nums.length;
+        int n = nums[0].length;
+        if (m * n != r * c) {
+            return nums;
+        }
+
+        int[][] ans = new int[r][c];
+        for (int x = 0; x < m * n; ++x) {
+            ans[x / c][x % c] = nums[x / n][x % n];
+        }
+        return ans;
+    }
 
     public int[] intersect(int[] nums1, int[] nums2) {
         HashMap<Integer, Integer> hashMap = new HashMap<>();

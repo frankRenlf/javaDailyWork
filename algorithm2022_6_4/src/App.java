@@ -18,6 +18,11 @@ import java.util.Arrays;
 public class App {
 
     public static void main(String[] args) {
+        structure.Solution sol = new structure.Solution();
+        System.out.println(Arrays.toString(sol.generate(5).toArray()));
+    }
+
+    public static void main8(String[] args) {
         BinarySearch.Solution sol = new Solution();
         System.out.println(Arrays.toString(sol.searchRange(new int[]{5, 7, 7, 8, 8, 10}, 8)));
     }
