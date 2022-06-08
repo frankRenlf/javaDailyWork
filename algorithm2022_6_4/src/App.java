@@ -18,6 +18,11 @@ import java.util.Arrays;
 public class App {
 
     public static void main(String[] args) {
+        dp.Solution sol = new dp.Solution();
+        System.out.println(sol.maxSubarraySumCircular(new int[]{-1, 3, -5, 9}));
+    }
+
+    public static void main9(String[] args) {
         structure.Solution sol = new structure.Solution();
         System.out.println(Arrays.toString(sol.generate(5).toArray()));
     }
@@ -35,7 +40,7 @@ public class App {
 
     public static void main6(String[] args) {
         BinarySearch.Solution sol = new Solution();
-        System.out.println(sol.nextGreatestLetter(new char[]{'a','b','c'},'b'));
+        System.out.println(sol.nextGreatestLetter(new char[]{'a', 'b', 'c'}, 'b'));
     }
 
     public static void main5(String[] args) {

@@ -14,6 +14,38 @@ package dp;
  */
 public class Solution {
 
+    public int maxSubarraySumCircular(int[] nums) {
+        int len = nums.length;
+        int preMax = nums[0];
+        int max = nums[0];
+        int preMin = nums[0];
+        int min = nums[0];
+        int total = nums[0];
+        for (int i = 1; i < len; i++) {
+            total += nums[i];
+            preMax = Math.max(preMax + nums[i], nums[i]);
+            max = Math.max(max, preMax);
+            preMin = Math.min(preMin + nums[i], nums[i]);
+            min = Math.min(preMin, min);
+        }
+        return max > 0 ? Math.max(max, total - min) : max;
+    }
+
+    public int maxSubArray(int[] nums) {
+        int len = nums.length;
+        int pre = nums[0];
+        int max = nums[0];
+        for (int i = 1; i < len; i++) {
+            if (pre + nums[i] >= nums[i]) {
+                pre += nums[i];
+            } else {
+                pre = nums[i];
+            }
+            max = Math.max(max, pre);
+        }
+        return max;
+    }
+
     public int jump(int[] nums) {
         int len = nums.length;
         int rightMost = 0;
@@ -86,7 +118,7 @@ public class Solution {
         return c;
     }
 
-    public int maxSubArray(int[] nums) {
+    public int maxSubArray1(int[] nums) {
         int len = nums.length;
         int pre = nums[0];
         int max = nums[0];
