@@ -18,6 +18,11 @@ import java.util.Arrays;
 public class App {
 
     public static void main(String[] args) {
+        BinarySearch.Solution sol = new Solution();
+        System.out.println(sol.arrangeCoins(8));
+    }
+
+    public static void main10(String[] args) {
         dp.Solution sol = new dp.Solution();
         System.out.println(sol.maxSubarraySumCircular(new int[]{-1, 3, -5, 9}));
     }

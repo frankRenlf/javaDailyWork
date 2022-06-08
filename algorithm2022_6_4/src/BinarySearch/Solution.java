@@ -14,6 +14,43 @@ package BinarySearch;
  */
 public class Solution {
 
+    public int findKthPositive(int[] arr, int k) {
+        int left = 0;
+        int right = arr.length;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (arr[mid] - mid - 1 >= k) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        /*
+        if (left == arr.length - 1) {
+            return left + k;
+        } else if (left == 0) {
+            return k;
+        } else {
+            return left + k;
+        }
+         */
+        return left + k;
+    }
+
+    public int arrangeCoins(int n) {
+        int left = 1;
+        int right = n;
+        while (left < right) {
+            int mid = left + (right - left + 1) / 2;
+            if ((long) (mid + 1) * mid > (long) 2 * n) {
+                right = mid - 1;
+            } else {
+                left = mid;
+            }
+        }
+        return left;
+    }
+
     public int[] searchRange2(int[] nums, int target) {
         if (nums.length == 0) return new int[]{-1, -1};
 
