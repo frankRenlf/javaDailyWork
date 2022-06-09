@@ -16,6 +16,41 @@ import java.util.*;
  */
 public class Solution {
 
+    public boolean canConstruct(String ransomNote, String magazine) {
+        HashMap<Character, Integer> hashMap = new HashMap<>();
+        for (int i = 0; i < magazine.length(); i++) {
+            char tmp = magazine.charAt(i);
+            hashMap.put(tmp, hashMap.getOrDefault(tmp, 0) + 1);
+        }
+        for (int i = 0; i < ransomNote.length(); i++) {
+            char tmp = ransomNote.charAt(i);
+            if (hashMap.containsKey(tmp)) {
+                int val = hashMap.get(tmp);
+                if (val > 0) {
+                    hashMap.replace(tmp, val - 1);
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public int firstUniqChar(String s) {
+        HashMap<Character, Integer> hashMap = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            hashMap.put(s.charAt(i), hashMap.getOrDefault(s.charAt(i), 0) + 1);
+        }
+        for (int i = 0; i < s.length(); i++) {
+            if (hashMap.get(s.charAt(i)) == 1) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     public void setZeroes(int[][] matrix) {
         int m = matrix.length, n = matrix[0].length;
         boolean[] row = new boolean[m];

@@ -18,6 +18,16 @@ import java.util.Arrays;
 public class App {
 
     public static void main(String[] args) {
+        structure.Solution sol = new structure.Solution();
+        System.out.println(sol.canConstruct("abcd", "ab"));
+    }
+
+    public static void main12(String[] args) {
+        structure.Solution sol = new structure.Solution();
+        System.out.println(sol.firstUniqChar("frankfrnk"));
+    }
+
+    public static void main11(String[] args) {
         BinarySearch.Solution sol = new Solution();
         System.out.println(sol.arrangeCoins(8));
     }

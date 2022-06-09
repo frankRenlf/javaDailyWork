@@ -14,6 +14,8 @@ package BinarySearch;
  */
 public class Solution {
 
+
+
     public int specialArray(int[] nums) {
         int n = nums.length;
         int right = 0;
