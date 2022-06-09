@@ -16,6 +16,24 @@ import java.util.*;
  */
 public class Solution {
 
+    public boolean isAnagram(String s, String t) {
+        int sl = s.length(), tl = t.length();
+        if (sl != tl) {
+            return false;
+        }
+        int[] arr = new int[26];
+        for (int i = 0; i < sl; i++) {
+            arr[s.charAt(i) - 97]++;
+            arr[t.charAt(i) - 97]--;
+        }
+        for (int x : arr) {
+            if (x != 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public boolean canConstruct(String ransomNote, String magazine) {
         HashMap<Character, Integer> hashMap = new HashMap<>();
         for (int i = 0; i < magazine.length(); i++) {

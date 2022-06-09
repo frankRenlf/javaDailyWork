@@ -19,6 +19,12 @@ public class App {
 
     public static void main(String[] args) {
         structure.Solution sol = new structure.Solution();
+        System.out.println(sol.isAnagram("abcdefc", "acbfed"));
+
+    }
+
+    public static void main13(String[] args) {
+        structure.Solution sol = new structure.Solution();
         System.out.println(sol.canConstruct("abcd", "ab"));
     }
 
