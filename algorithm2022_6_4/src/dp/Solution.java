@@ -14,6 +14,42 @@ package dp;
  */
 public class Solution {
 
+    public int getMaxLen(int[] nums) {
+        int positive = nums[0] > 0 ? 1 : 0;
+        int negative = nums[0] < 0 ? 1 : 0;
+        int max = positive;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] > 0) {
+                positive += 1;
+                negative = negative > 0 ? negative + 1 : 0;
+            } else if (nums[i] < 0) {
+                int tp = negative > 0 ? negative + 1 : 0;
+                int tn = positive + 1;
+                positive = tp;
+                negative = tn;
+            } else {
+                positive = 0;
+                negative = 0;
+            }
+            max = Math.max(max, positive);
+        }
+        return max;
+    }
+
+    public int maxProduct(int[] nums) {
+        int len = nums.length;
+        int preMin = nums[0];
+        int preMax = nums[0];
+        int max = nums[0];
+        for (int i = 1; i < len; i++) {
+            int mn = preMin, mx = preMax;
+            preMin = Math.min(mn * nums[i], Math.min(mx * nums[i], nums[i]));
+            preMax = Math.max(mx * nums[i], Math.max(nums[i], nums[i] * mn));
+            max = Math.max(max, preMax);
+        }
+        return max;
+    }
+
     public int maxSubarraySumCircular(int[] nums) {
         int len = nums.length;
         int preMax = nums[0];
