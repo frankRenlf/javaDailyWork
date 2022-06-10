@@ -14,7 +14,23 @@ package BinarySearch;
  */
 public class Solution {
 
-
+    public boolean searchMatrix(int[][] matrix, int target) {
+        int row = matrix.length, col = matrix[0].length;
+        int len = row * col;
+        int left = 0;
+        int right = len - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (matrix[mid / col][mid % col] > target) {
+                right = mid - 1;
+            } else if (matrix[mid / col][mid % col] < target) {
+                left = mid + 1;
+            } else {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public int specialArray(int[] nums) {
         int n = nums.length;
