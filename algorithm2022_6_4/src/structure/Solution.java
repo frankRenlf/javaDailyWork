@@ -16,6 +16,21 @@ import java.util.*;
  */
 public class Solution {
 
+    public ListNode removeElements(ListNode head, int val) {
+        ListNode ph = new ListNode(0);
+        ph.next = head;
+        ListNode pre = ph;
+        while (pre != null && pre.next != null) {
+            if (pre.next.val == val) {
+                pre.next = pre.next.next;
+            } else {
+                pre = pre.next;
+            }
+
+        }
+        return ph.next;
+    }
+
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode prehead = new ListNode(-1);
 
