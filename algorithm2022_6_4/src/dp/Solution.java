@@ -14,6 +14,21 @@ package dp;
  */
 public class Solution {
 
+    public int maxProfit(int[] prices) {
+
+    }
+
+    public int maxProfit2(int[] prices) {
+        int len = prices.length;
+        int min = prices[0];
+        int mx = 0;
+        for (int i = 1; i < len; i++) {
+            mx = Math.max(mx, prices[i] - min);
+            min = Math.min(min, prices[i]);
+        }
+        return mx;
+    }
+
     public int maxScoreSightseeingPair(int[] values) {
         int ans = 0, mx = values[0];
         for (int j = 1; j < values.length; ++j) {
@@ -121,7 +136,7 @@ public class Solution {
         return false;
     }
 
-    public int maxProfit(int[] prices) {
+    public int maxProfit1(int[] prices) {
         int min = prices[0];
         int max = 0;
         for (int i = 1; i < prices.length; i++) {
