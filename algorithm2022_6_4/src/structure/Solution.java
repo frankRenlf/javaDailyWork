@@ -20,7 +20,7 @@ public class Solution {
         ListNode ph = new ListNode(0);
         ph.next = head;
         ListNode pre = ph;
-        while (pre != null && pre.next != null) {
+        while (pre.next != null) {
             if (pre.next.val == val) {
                 pre.next = pre.next.next;
             } else {
