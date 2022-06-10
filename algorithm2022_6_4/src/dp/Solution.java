@@ -14,6 +14,16 @@ package dp;
  */
 public class Solution {
 
+    public int maxScoreSightseeingPair(int[] values) {
+        int ans = 0, mx = values[0];
+        for (int j = 1; j < values.length; ++j) {
+            ans = Math.max(ans, mx + values[j] - j);
+            // 边遍历边维护
+            mx = Math.max(mx, values[j] + j);
+        }
+        return ans;
+    }
+
     public int getMaxLen(int[] nums) {
         int positive = nums[0] > 0 ? 1 : 0;
         int negative = nums[0] < 0 ? 1 : 0;
