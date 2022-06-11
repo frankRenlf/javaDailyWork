@@ -16,6 +16,16 @@ import java.util.*;
  */
 public class Solution {
 
+    public ListNode reverseList1(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode newHead = reverseList1(head.next);
+        head.next.next = head;
+        head.next = null;
+        return newHead;
+    }
+
     public ListNode removeElements(ListNode head, int val) {
         ListNode ph = new ListNode(0);
         ph.next = head;
