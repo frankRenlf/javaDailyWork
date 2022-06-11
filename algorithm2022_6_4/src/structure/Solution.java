@@ -16,6 +16,44 @@ import java.util.*;
  */
 public class Solution {
 
+    public ListNode deleteDuplicates2(ListNode head) {
+        ListNode cur = head;
+        while (cur != null && cur.next != null) {
+            if (cur.val == cur.next.val) {
+                cur.next = cur.next.next;
+            } else {
+                cur = cur.next;
+            }
+        }
+        return head;
+    }
+
+    public ListNode deleteDuplicates(ListNode head) {
+        ListNode pre = head;
+        ListNode cur = pre.next;
+        while (cur != null) {
+            if (pre.val == cur.val) {
+                pre.next = cur.next;
+            } else {
+                cur = cur.next;
+                pre = pre.next;
+            }
+        }
+        return head;
+    }
+
+    public ListNode reverseList(ListNode head) {
+        ListNode pre = null;
+        ListNode cur = head;
+        while (cur.next != null) {
+            ListNode next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
+        }
+        return cur;
+    }
+
     public ListNode reverseList1(ListNode head) {
         if (head == null || head.next == null) {
             return head;
