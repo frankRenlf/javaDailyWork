@@ -15,6 +15,21 @@ package dp;
 public class Solution {
 
     public int maxProfit(int[] prices) {
+        int dp0 = -prices[0];
+        int dp1 = 0;//in
+        int dp2 = 0;//out
+        for (int i = 1; i < prices.length; i++) {
+            int nd0 = Math.max(dp0, dp2 - prices[i]);
+            int nd1 = nd0 + prices[i];
+            int nd2 = Math.max(dp1, dp2);
+            dp0 = nd0;
+            dp1 = nd1;
+            dp2 = nd2;
+        }
+        return Math.max(dp1, dp2);
+    }
+
+    public int maxProfit4(int[] prices) {
         int len = prices.length;
         int dp0 = 0;
         int dp1 = -prices[0];
