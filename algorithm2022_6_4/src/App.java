@@ -18,6 +18,15 @@ import java.util.Arrays;
 public class App {
 
     public static void main(String[] args) {
+
+    }
+
+    public static void main15(String[] args) {
+        String s = "abc";
+        s.substring(0, 1);
+    }
+
+    public static void main14(String[] args) {
         structure.Solution sol = new structure.Solution();
         System.out.println(sol.isAnagram("abcdefc", "acbfed"));
 
