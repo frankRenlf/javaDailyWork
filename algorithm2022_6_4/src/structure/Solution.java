@@ -16,6 +16,49 @@ import java.util.*;
  */
 public class Solution {
 
+    Stack<Integer> stack1 = new Stack<>();
+    Stack<Integer> stack2 = new Stack<>();
+
+    public void push(int x) {
+        while (!stack1.isEmpty()) {
+            stack2.push(stack1.pop());
+        }
+        stack1.push(x);
+        while (!stack2.isEmpty()) {
+            stack1.push(stack2.pop());
+        }
+
+    }
+
+    public int pop() {
+        return stack1.pop();
+    }
+
+    public int peek() {
+        return stack1.peek();
+    }
+
+    public boolean empty() {
+        return stack1.isEmpty();
+    }
+
+    public boolean isValid(String s) {
+        if (s.isEmpty())
+            return true;
+        Stack<Character> stack = new Stack<Character>();
+        for (char c : s.toCharArray()) {
+            if (c == '(')
+                stack.push(')');
+            else if (c == '{')
+                stack.push('}');
+            else if (c == '[')
+                stack.push(']');
+            else if (stack.empty() || c != stack.pop())
+                return false;
+        }
+        return stack.empty();
+    }
+
     public ListNode deleteDuplicates2(ListNode head) {
         ListNode cur = head;
         while (cur != null && cur.next != null) {
