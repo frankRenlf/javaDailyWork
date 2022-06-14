@@ -23,18 +23,33 @@ public class Vehicles {
         List<Double> vehiclePrice = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter number of v: ");
-        int n = sc.nextInt();
-        while (n > 0) {
-            System.out.print("Enter vehicleNames: ");
-            vehicleNames.add(sc.next());
-            System.out.print("Enter vehicleWeight: ");
-            vehicleWeight.add(sc.nextDouble());
-            System.out.print("Enter vehiclePrice: ");
-            vehiclePrice.add(sc.nextDouble());
-            n--;
-        }
-        System.out.print("Enter weight: ");
-        Double weight = sc.nextDouble();
+//        int n = sc.nextInt();
+//        while (n > 0) {
+//            System.out.print("Enter vehicleNames: ");
+//            vehicleNames.add(sc.next());
+//            System.out.print("Enter vehicleWeight: ");
+//            vehicleWeight.add(sc.nextDouble());
+//            System.out.print("Enter vehiclePrice: ");
+//            vehiclePrice.add(sc.nextDouble());
+//            n--;
+//        }
+//        vehicleNames.add("A");
+//        vehicleWeight.add(50.0);
+//        vehiclePrice.add(100.0);
+//        Double weight = 200.0;
+
+        vehicleNames.add("A");
+        vehicleWeight.add(18.33);
+        vehiclePrice.add(100.5);
+        vehicleNames.add("B");
+        vehicleWeight.add(24.55);
+        vehiclePrice.add(146.5);
+
+        vehicleNames.add("C");
+        vehicleWeight.add(35.04);
+        vehiclePrice.add(198.3);
+        Double weight = 49.1;
+
         return new Problem(vehicleNames, vehicleWeight, vehiclePrice, weight);
     }
 
