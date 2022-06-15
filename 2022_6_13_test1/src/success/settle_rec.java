@@ -1,4 +1,4 @@
-package App;
+package success;
 
 import test1.Result;
 import test1.Vehicles;
@@ -32,18 +32,18 @@ public class settle_rec {
         public Node() {
         }
 
-        public Node(double _val, double _price) {
-            curWeight = _val;
-            curPrice = _price;
+        public Node(double weight, double price) {
+            curWeight = weight;
+            curPrice = price;
         }
 
-        public Node(double _val, List<Node> _children) {
-            curWeight = _val;
-            children = _children;
+        public Node(double weight, List<Node> children) {
+            curWeight = weight;
+            this.children = children;
         }
     }
 
-    public double sum = 0;
+//    public double sum = 0;
 
     public Node createTree(double weight, Vehicles.Vehicle vehicle) {
         if (weight <= 0) {
@@ -70,10 +70,8 @@ public class settle_rec {
 //    }
 
     public static double run(Node root) {
-        //当节点左右子树都为null时，返回0
         if (root == null)
             return 0.0;
-        //当左子树为null，返回右子树递归+1；
         List<Double> tmp = new ArrayList<>();
         for (int i = 0; i < vehicles.getVehicleList().size(); i++) {
             if (root.children.get(i) != null) {
@@ -101,12 +99,11 @@ public class settle_rec {
         for (int j = 0; j < len; j++) {
             result.setVehicleNum(vehicles.getVehicleList().get(j).getName(), 0);
         }
-        double totalWeight = vehicles.getTotalWeight();
-        settle_rec stack = new settle_rec();
-        Node root = stack.createTree(vehicles.getTotalWeight(), vehicles.getVehicleList().get(0));
+        settle_rec rec = new settle_rec();
+        Node root = rec.createTree(vehicles.getTotalWeight(), vehicles.getVehicleList().get(0));
         double minConsume = run(root);
         for (int i = 1; i < len; i++) {
-            root = stack.createTree(vehicles.getTotalWeight(), vehicles.getVehicleList().get(i));
+            root = rec.createTree(vehicles.getTotalWeight(), vehicles.getVehicleList().get(i));
             minConsume = Math.min(minConsume, run(root));
         }
         System.out.println("cost: " + minConsume);

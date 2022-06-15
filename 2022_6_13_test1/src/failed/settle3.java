@@ -1,3 +1,5 @@
+package failed;
+
 import test1.Result;
 import test1.Vehicles;
 
