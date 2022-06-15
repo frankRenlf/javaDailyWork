@@ -21,8 +21,8 @@ public class Vehicles {
         List<String> vehicleNames = new ArrayList<>();
         List<Double> vehicleWeight = new ArrayList<>();
         List<Double> vehiclePrice = new ArrayList<>();
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter number of v: ");
+//        Scanner sc = new Scanner(System.in);
+//        System.out.print("Enter number of v: ");
 //        int n = sc.nextInt();
 //        while (n > 0) {
 //            System.out.print("Enter vehicleNames: ");
@@ -47,7 +47,7 @@ public class Vehicles {
         vehicleNames.add("C");
         vehicleWeight.add(35.04);
         vehiclePrice.add(198.3);
-        Double weight = 49.2;
+        Double weight = 36.1;
 
         return new Problem(vehicleNames, vehicleWeight, vehiclePrice, weight);
     }
