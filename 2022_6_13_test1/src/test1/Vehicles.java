@@ -44,11 +44,10 @@ public class Vehicles {
         vehicleNames.add("B");
         vehicleWeight.add(24.55);
         vehiclePrice.add(146.5);
-
         vehicleNames.add("C");
         vehicleWeight.add(35.04);
         vehiclePrice.add(198.3);
-        Double weight = 49.1;
+        Double weight = 49.2;
 
         return new Problem(vehicleNames, vehicleWeight, vehiclePrice, weight);
     }

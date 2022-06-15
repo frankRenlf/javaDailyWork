@@ -33,7 +33,13 @@ public class settle2 {
                 return -Double.compare(o1.getWeight() / o1.getPrice(), o2.getWeight() / o2.getPrice());
             }
         });
-        System.out.println(r2);
+        Result r1 = big(vehicles, new Comparator<Vehicles.Vehicle>() {
+            @Override
+            public int compare(Vehicles.Vehicle o1, Vehicles.Vehicle o2) {
+                return -Double.compare(o1.getWeight(), o2.getWeight());
+            }
+        });
+        System.out.println(r1.getPrice() > r2.getPrice() ? r2 : r1);
     }
 
     public static Result big(Vehicles vehicles, Comparator<Vehicles.Vehicle> comparator) {
@@ -50,67 +56,81 @@ public class settle2 {
             result.getVehicleNum().put(vehicles.getVehicleList().get(0).getName(), count);
             result.setPrice(small);
         } else {
-            double pre = count * vehicles.getVehicleList().get(0).getPrice();
-            double small = (count + 1) * vehicles.getVehicleList().get(0).getPrice();
-            result.getVehicleNum().put(vehicles.getVehicleList().get(0).getName(), count + 1);
-            result.setPrice(small);
-            totalWeight %= vehicles.getVehicleList().get(0).getWeight();
-            for (int i = 1; i < len; i++) {
-                count = (int) (totalWeight / vehicles.getVehicleList().get(i).getWeight());
-                if (totalWeight % vehicles.getVehicleList().get(i).getWeight() == 0) {
-                    count--;
+            for (int index = 0; index < len - 1; index++) {
+                Result result1 = new Result();
+                for (int j = 0; j < len; j++) {
+                    result1.setVehicleNum(vehicles.getVehicleList().get(j).getName(), 0);
                 }
-                double tmpSmall = pre + (count + 1) * vehicles.getVehicleList().get(i).getPrice();
-                result.getVehicleNum().put(vehicles.getVehicleList().get(i).getName(),
-                        0);
-                if (small > tmpSmall) {
-                    small = tmpSmall;
-                    pre = tmpSmall - vehicles.getVehicleList().get(i).getPrice();
+                totalWeight = vehicles.getTotalWeight();
+                count = (int) (totalWeight / vehicles.getVehicleList().get(index).getWeight());
+                double pre = count * vehicles.getVehicleList().get(index).getPrice();
+                double small = (count + 1) * vehicles.getVehicleList().get(index).getPrice();
+                result1.getVehicleNum().put(vehicles.getVehicleList().get(index).getName(), count + 1);
+                result1.setPrice(small);
+                totalWeight %= vehicles.getVehicleList().get(index).getWeight();
+                for (int i = index + 1; i < len; i++) {
+                    count = (int) (totalWeight / vehicles.getVehicleList().get(i).getWeight());
+                    if (totalWeight % vehicles.getVehicleList().get(i).getWeight() == 0) {
+                        count--;
+                    }
+                    double tmpSmall = pre + (count + 1) * vehicles.getVehicleList().get(i).getPrice();
+                    result1.getVehicleNum().put(vehicles.getVehicleList().get(i).getName(),
+                            0);
+//                    //
+//                    double tmpWeight = totalWeight;
+//                    int t = i - 1;
+//                    int preNum = result1.getVehicleNum().get(vehicles.getVehicleList().get(t).getName()) - 1;
+//                    while (t >= 0) {
+//                        if (result1.getVehicleNum().get(vehicles.getVehicleList().get(t).getName()) > 0) {
+//                            preNum = result1.getVehicleNum().get(vehicles.getVehicleList().get(t).getName());
+//                            if (t == i - 1) {
+//                                preNum--;
+//                            }
+//                            break;
+//                        }
+//                        t--;
+//                    }
+//                    double ts2 = small - vehicles.getVehicleList().get(t).getPrice();
+//                    int tmp = t;
+//                    while (preNum > 0) {
+//                        preNum--;
+//                        tmpWeight += vehicles.getVehicleList().get(tmp).getWeight();
+//                        count = (int) (tmpWeight / vehicles.getVehicleList().get(i).getWeight());
+//                        if (tmpWeight % vehicles.getVehicleList().get(i).getWeight() == 0) {
+//                            count--;
+//                        }
+//                        ts2 -= vehicles.getVehicleList().get(tmp).getPrice();
+//                        tmpSmall = ts2
+//                                + (count + 1) * vehicles.getVehicleList().get(i).getPrice();
+//                        if (small > tmpSmall) {
+//                            small = tmpSmall;
+//                            result1.getVehicleNum().replace(vehicles.getVehicleList().get(tmp).getName(),
+//                                    preNum);
+//                            result1.getVehicleNum().put(vehicles.getVehicleList().get(i).getName(), count + 1);
+//                            result1.setPrice(small);
+//                        }
+//                        if (preNum == 0 && tmp > 0) {
+//                            preNum = result1.getVehicleNum().get(vehicles.getVehicleList().get(tmp).getName()) - 1;
+//                            tmp--;
+//                        }
+//                    }
+                    //
+                    if (small > tmpSmall) {
+                        small = tmpSmall;
+                        pre = tmpSmall - vehicles.getVehicleList().get(i).getPrice();
 
-                    result.getVehicleNum().replace(vehicles.getVehicleList().get(i - 1).getName(),
-                            result.getVehicleNum().get(vehicles.getVehicleList().get(i - 1).getName()) - 1);
-                    result.getVehicleNum().put(vehicles.getVehicleList().get(i).getName(), count + 1);
-                    result.setPrice(small);
-                    totalWeight %= vehicles.getVehicleList().get(i).getWeight();
-                } else {
-                    double tmpWeight = totalWeight;
-                    int t = i - 1;
-                    int preNum = result.getVehicleNum().get(vehicles.getVehicleList().get(t).getName()) - 1;
-                    while (t >= 0) {
-                        if (result.getVehicleNum().get(vehicles.getVehicleList().get(t).getName()) > 0) {
-                            preNum = result.getVehicleNum().get(vehicles.getVehicleList().get(t).getName());
-                            if (t == i - 1) {
-                                preNum--;
-                            }
-                            break;
-                        }
-                        t--;
-                    }
-                    double ts2 = small - vehicles.getVehicleList().get(t).getPrice();
-                    int tmp = t;
-                    while (preNum > 0) {
-                        preNum--;
-                        tmpWeight += vehicles.getVehicleList().get(tmp).getWeight();
-                        count = (int) (tmpWeight / vehicles.getVehicleList().get(i).getWeight());
-                        if (tmpWeight % vehicles.getVehicleList().get(i).getWeight() == 0) {
-                            count--;
-                        }
-                        ts2 -= vehicles.getVehicleList().get(tmp).getPrice();
-                        tmpSmall = ts2
-                                + (count + 1) * vehicles.getVehicleList().get(i).getPrice();
-                        if (small > tmpSmall) {
-                            small = tmpSmall;
-                            result.getVehicleNum().replace(vehicles.getVehicleList().get(tmp).getName(),
-                                    preNum);
-                            result.getVehicleNum().put(vehicles.getVehicleList().get(i).getName(), count + 1);
-                            result.setPrice(small);
-                        }
-                        if (preNum == 0 && tmp > 0) {
-                            preNum = result.getVehicleNum().get(vehicles.getVehicleList().get(tmp).getName()) - 1;
-                            tmp--;
-                        }
+                        result1.getVehicleNum().replace(vehicles.getVehicleList().get(i - 1).getName(),
+                                result1.getVehicleNum().get(vehicles.getVehicleList().get(i - 1).getName()) - 1);
+                        result1.getVehicleNum().put(vehicles.getVehicleList().get(i).getName(), count + 1);
+                        result1.setPrice(small);
+                        result = result1;
+                        totalWeight %= vehicles.getVehicleList().get(i).getWeight();
                     }
                 }
+
+//                else {
+
+//                    }
             }
         }
         return result;
