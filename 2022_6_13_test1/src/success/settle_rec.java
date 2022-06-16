@@ -93,6 +93,7 @@ public class settle_rec {
 
     static Vehicles vehicles = new Vehicles();
 
+
     public static void main(String[] args) {
         int len = vehicles.getVehicleList().size();
         Result result = new Result();
