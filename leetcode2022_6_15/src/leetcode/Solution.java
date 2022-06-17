@@ -15,6 +15,9 @@ import java.util.List;
  * @Description :
  */
 public class Solution {
+
+
+
     public int minFallingPathSum(int[][] A) {
         int N = A.length;
         for (int r = 1; r < N; ++r) {
