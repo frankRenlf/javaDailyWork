@@ -1,5 +1,6 @@
 package success;
 
+import test1.Result;
 import test1.Vehicles;
 
 import java.util.ArrayList;
@@ -19,14 +20,16 @@ import java.util.List;
  * @Description :
  */
 public class settle_rec2 {
-    public static double single(double tw) {
+    public static double single(double tw, Result result) {
         if (tw <= 0) {
             return 0;
         }
         List<Double> tmp = new ArrayList<>();
         for (int i = 0; i < vehicles.getVehicleList().size(); i++) {
+            result.setVehicleNum(vehicles.getVehicleList().get(i).getName()
+                    , result.getVehicleNum().get(vehicles.getVehicleList().get(i).getName())+1);
             tmp.add(vehicles.getVehicleList().get(i).getPrice()
-                    + single(tw - vehicles.getVehicleList().get(i).getWeight()));
+                    + single(tw - vehicles.getVehicleList().get(i).getWeight(), result));
         }
         tmp.sort(new Comparator<Double>() {
             @Override
@@ -41,7 +44,12 @@ public class settle_rec2 {
     static Vehicles vehicles = new Vehicles();
 
     public static void main(String[] args) {
-        System.out.println(single(vehicles.getTotalWeight()));
+        Result result = new Result();
+        for (int i = 0; i < vehicles.getVehicleList().size(); i++) {
+            result.setVehicleNum(vehicles.getVehicleList().get(i).getName(), 0);
+        }
+        System.out.println(single(vehicles.getTotalWeight(), result));
+        System.out.println(result);
     }
 
 }
