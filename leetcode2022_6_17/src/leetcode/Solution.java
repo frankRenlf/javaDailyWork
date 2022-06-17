@@ -1,5 +1,10 @@
 package leetcode;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -13,6 +18,49 @@ package leetcode;
  * @Description :
  */
 public class Solution {
+
+    Map<Integer, TreeNode> parent = new HashMap<Integer, TreeNode>();
+    Set<Integer> visited = new HashSet<Integer>();
+
+    public void dfs(TreeNode root) {
+        if (root.left != null) {
+            parent.put(root.left.val, root);
+            dfs(root.left);
+        }
+        if (root.right != null) {
+            parent.put(root.right.val, root);
+            dfs(root.right);
+        }
+    }
+
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        dfs(root);
+        while (p != null) {
+            visited.add(p.val);
+            p = parent.get(p.val);
+        }
+        while (q != null) {
+            if (visited.contains(q.val)) {
+                return q;
+            }
+            q = parent.get(q.val);
+        }
+        return null;
+    }
+
+
+    Map<Integer, Integer> map = new HashMap<>();
+
+    public boolean findTarget(TreeNode root, int k) {
+        if (root == null) {
+            return false;
+        }
+        if (map.containsKey(k - root.val)) {
+            return true;
+        }
+        map.put(root.val, root.val);
+        return findTarget(root.left, k) || findTarget(root.right, k);
+    }
 
     public TreeNode insertIntoBST(TreeNode root, int val) {
         TreeNode ret = root;
