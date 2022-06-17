@@ -1,5 +1,8 @@
 package leetcode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -13,6 +16,13 @@ package leetcode;
  * @Description :
  */
 public class NumMatrix {
+
+    static List<Boolean> list = new ArrayList<>();
+
+    public static void main(String[] args) {
+        list.add(true);
+        list.contains(true);
+    }
 
     public int[][] matrixBlockSum(int[][] mat, int k) {
         int m = mat.length, n = mat[0].length;
