@@ -19,6 +19,42 @@ import java.util.Set;
  */
 public class Solution {
 
+
+    public int uniquePathsWithObstacles(int[][] obstacleGrid) {
+        int n = obstacleGrid[0].length;
+        int[] dp = new int[n];
+        dp[0] = obstacleGrid[0][0] == 0 ? 1 : 0;
+        for (int[] ints : obstacleGrid) {
+            for (int j = 0; j < n; j++) {
+                if (ints[j] == 1) {
+                    dp[j] = 0;
+                    continue;
+                }
+                if (j > 0 && ints[j - 1] != 1) {
+                    dp[j] += dp[j - 1];
+                }
+            }
+        }
+        return dp[n - 1];
+    }
+
+    public int uniquePaths(int m, int n) {
+        int[][] arr = new int[m][n];
+        for (int i = 0; i < m; i++) {
+            arr[i][0] = 1;
+        }
+        for (int j = 0; j < n; j++) {
+            arr[0][j] = 1;
+        }
+        for (int y = 1; y < m; y++) {
+            for (int x = 1; x < n; x++) {
+                arr[y][x] = arr[y - 1][x] + arr[y][x - 1];
+            }
+        }
+        return arr[m - 1][n - 1];
+    }
+
+
     Map<Integer, TreeNode> parent = new HashMap<Integer, TreeNode>();
     Set<Integer> visited = new HashSet<Integer>();
 
