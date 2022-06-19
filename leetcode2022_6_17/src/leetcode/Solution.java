@@ -19,6 +19,61 @@ import java.util.Set;
  */
 public class Solution {
 
+    public int maximalSquare3(char[][] matrix) {
+        int maxSide = 0;
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+            return maxSide;
+        }
+        int row = matrix.length, col = matrix[0].length;
+        int[] pre = new int[col];
+        int[] cur = new int[col];
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if (matrix[i][j] == '1') {
+                    if (i == 0 || j == 0) {
+                        cur[j] = 1;
+                    } else {
+                        cur[j] = Math.min(Math.min(pre[j], cur[j - 1]), pre[j - 1]) + 1;
+                    }
+                } else {
+                    cur[j] = 0;
+                }
+                maxSide = Math.max(maxSide, cur[j]);
+            }
+            System.arraycopy(cur, 0, pre, 0, col);
+        }
+        return maxSide * maxSide;
+    }
+
+    public int maximalSquare2(char[][] matrix) {
+        int maxSide = 0;
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+            return maxSide;
+        }
+        int rows = matrix.length, columns = matrix[0].length;
+        int pre = matrix[0][0] == '0' ? 0 : 1;
+        int[] cur = new int[columns];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                if (matrix[i][j] == '1') {
+                    if (i == 0 || j == 0) {
+                        pre = cur[j];
+                        cur[j] = 1;
+                    } else {
+                        int tmp = cur[j];
+                        cur[j] = Math.min(pre, Math.min(cur[j], cur[j - 1])) + 1;
+                        pre = tmp;
+                    }
+                    maxSide = Math.max(maxSide, cur[j]);
+                } else {
+                    pre = cur[j];
+                    cur[j] = 0;
+                }
+            }
+        }
+        return maxSide * maxSide;
+    }
+
     public int maximalSquare(char[][] matrix) {
         int maxSide = 0;
         if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
