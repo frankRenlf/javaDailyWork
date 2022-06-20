@@ -16,7 +16,7 @@ public class App {
 
     public static void main(String[] args) {
         Solution sol = new Solution();
-        System.out.println(sol.longestPalindrome("cabccbacd"));
+        System.out.println(sol.longestPalindromeSubseq("bbbab"));
     }
 
 }

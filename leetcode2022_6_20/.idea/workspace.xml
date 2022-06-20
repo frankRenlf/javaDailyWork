@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4e3ed4ea-d7da-46b4-b990-1cca0e24feed" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leetcode/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/Solution.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +38,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/11195/IdeaProjects/javaDailyWork/leetcode2022_6_20",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -62,6 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1655693753717</updated>
       <workItem from="1655693755449" duration="2463000" />
+      <workItem from="1655726137413" duration="1143000" />
     </task>
     <servers />
   </component>
