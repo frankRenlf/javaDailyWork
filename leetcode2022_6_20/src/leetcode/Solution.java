@@ -14,6 +14,57 @@ package leetcode;
  */
 public class Solution {
 
+    public int wiggleMaxLength2(int[] nums) {
+        int len = nums.length;
+        int up = 1;
+        int down = 1;
+        for (int i = 1; i < len; i++) {
+            if (nums[i] > nums[i - 1]) {
+                up = Math.max(down + 1, up);
+            } else if (nums[i] < nums[i - 1]) {
+                down = Math.max(up + 1, down);
+            }
+        }
+        return Math.max(up, down);
+    }
+
+
+    public int wiggleMaxLength(int[] nums) {
+        int len = nums.length;
+        int[] up = new int[len];
+        int[] down = new int[len];
+        up[0] = down[0] = 1;
+        for (int i = 1; i < len; i++) {
+            if (nums[i] > nums[i - 1]) {
+                up[i] = Math.max(down[i - 1] + 1, up[i - 1]);
+                down[i] = down[i - 1];
+            } else if (nums[i] < nums[i - 1]) {
+                up[i] = up[i - 1];
+                down[i] = Math.max(down[i - 1], up[i - 1] + 1);
+            } else {
+                down[i] = down[i - 1];
+                up[i] = up[i - 1];
+            }
+        }
+        return Math.max(up[len - 1], down[len - 1]);
+    }
+
+    public int lengthOfLIS(int[] nums) {
+        int len = nums.length;
+        int[] dp = new int[len];
+        int maxLen = 0;
+        for (int i = 0; i < len; i++) {
+            dp[i] = 1;
+            for (int j = 0; j < i; j++) {
+                if (nums[i] > nums[j]) {
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                }
+            }
+            maxLen = Math.max(maxLen, dp[i]);
+        }
+        return maxLen;
+    }
+
     public int longestPalindromeSubseq2(String s) {
         int n = s.length();
         int[][] dp = new int[n][n];

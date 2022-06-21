@@ -15,6 +15,11 @@ import leetcode.Solution;
 public class App {
 
     public static void main(String[] args) {
+        Solution solution = new Solution();
+        System.out.println(solution.lengthOfLIS(new int[]{10, 9, 2, 5, 3, 7, 101, 18}));
+    }
+
+    public static void main1(String[] args) {
         Solution sol = new Solution();
         System.out.println(sol.longestPalindromeSubseq("bbbab"));
     }
