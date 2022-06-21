@@ -1,5 +1,7 @@
 import leetcode.Solution;
 
+import java.util.Arrays;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -13,8 +15,13 @@ import leetcode.Solution;
  * @Description :
  */
 public class App {
+    static Solution sol = new Solution();
 
     public static void main(String[] args) {
+        System.out.println(Arrays.toString(sol.searchRange(new int[]{5, 7, 7, 8, 8, 10}, 8)));
+    }
+
+    public static void main2(String[] args) {
         Solution solution = new Solution();
         System.out.println(solution.lengthOfLIS(new int[]{10, 9, 2, 5, 3, 7, 101, 18}));
     }
