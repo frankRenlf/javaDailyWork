@@ -17,7 +17,7 @@ public class Test {
     static KMP kmp = new KMP();
 
     public static void main(String[] args) {
-        System.out.println(kmp.kmp("abceaaabcabdefg", "abcabab", 0));
+        System.out.println(kmp.kmp("abceaaabcabdefg", "aaaaaabb", 0));
     }
 
 }
