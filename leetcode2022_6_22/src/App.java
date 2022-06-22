@@ -1,3 +1,5 @@
+import leetcode.Solution;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -11,4 +13,12 @@
  * @Description :
  */
 public class App {
+
+    static Solution sol = new Solution();
+
+
+    public static void main(String[] args) {
+        System.out.println(sol.isSubsequence("abc", "cabdc"));
+    }
+
 }

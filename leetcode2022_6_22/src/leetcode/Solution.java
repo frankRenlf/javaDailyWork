@@ -13,4 +13,16 @@ package leetcode;
  * @Description :
  */
 public class Solution {
+
+    public boolean isSubsequence(String s, String t) {
+        int ls = s.length(), lt = t.length();
+        int i = 0;
+        for (int j = 0; i <= ls && j < lt; j++) {
+            if (s.charAt(i) == t.charAt(j)) {
+                i++;
+            }
+        }
+        return i >= ls;
+    }
+
 }
