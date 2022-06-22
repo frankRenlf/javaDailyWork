@@ -13,4 +13,46 @@ package algorithm;
  * @Description :
  */
 public class KMP {
+
+
+    private void Next(String sub, int[] next) {
+        next[0] = -1;
+        next[1] = 0;
+        int k = 0;
+        int i = 2;
+        while (i < sub.length()) {
+            if (k == -1 || sub.charAt(i - 1) == sub.charAt(k)) {
+                next[i] = k + 1;
+                i++;
+                k++;
+            } else {
+                k = next[k];
+            }
+        }
+    }
+
+
+    public int kmp(String str, String sub, int pos) {
+        if (str == null || sub == null) return -1;
+        int lenStr = str.length(), lenSub = sub.length();
+        if (lenStr == 0 || lenSub == 0) return -1;
+        if (pos < 0 || pos >= lenStr) return -1;
+
+        int[] next = new int[lenSub];
+        Next(sub, next);
+        int i = pos, j = 0;
+        while (i < lenStr) {
+            if (j == -1 || str.charAt(i) == sub.charAt(j)) {
+                i++;
+                j++;
+                if (j == lenSub) {
+                    return i - j;
+                }
+            } else {
+                j = next[j];
+            }
+        }
+        return -1;
+    }
+
 }

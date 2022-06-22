@@ -1,3 +1,5 @@
+import algorithm.KMP;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -11,4 +13,11 @@
  * @Description :
  */
 public class Test {
+
+    static KMP kmp = new KMP();
+
+    public static void main(String[] args) {
+        System.out.println(kmp.kmp("abcdefg", "cdc", 0));
+    }
+
 }
