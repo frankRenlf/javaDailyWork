@@ -1,3 +1,5 @@
+import leetcode.Solution;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -11,4 +13,11 @@
  * @Description :
  */
 public class test {
+
+    static Solution sol = new Solution();
+
+    public static void main(String[] args) {
+        System.out.println(sol.lastStoneWeight(new int[]{2, 7, 4, 1, 8, 1}));
+    }
+
 }

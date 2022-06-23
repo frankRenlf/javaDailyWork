@@ -1,6 +1,8 @@
 package leetcode;
 
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.PriorityQueue;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,6 +17,28 @@ import java.util.Arrays;
  * @Description :
  */
 public class Solution {
+
+    public int lastStoneWeight(int[] stones) {
+        PriorityQueue<Integer> pq = new PriorityQueue<Integer>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o2 - o1;
+            }
+        });
+        for (int stone : stones) {
+            pq.offer(stone);
+        }
+        System.out.println(pq);
+        while (pq.size() > 1) {
+            int a = pq.poll();
+            int b = pq.poll();
+            if (a != b) {
+                pq.offer(Math.abs(a - b));
+            }
+        }
+        return pq.isEmpty() ? 0 : pq.poll();
+    }
+
     public int change(int amount, int[] coins) {
         int[] dp = new int[amount + 1];
         dp[0] = 1;
