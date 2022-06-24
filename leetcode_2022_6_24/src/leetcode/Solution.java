@@ -63,6 +63,47 @@ public class Solution {
         return (int) (automaton.sign * automaton.ans);
     }
 
+//    if (res > Integer.MAX_VALUE / 10 || (res == Integer.MAX_VALUE / 10 && (currChar - '0') > Integer.MAX_VALUE % 10)) {
+//        return Integer.MAX_VALUE;
+//    }
+//            if (res < Integer.MIN_VALUE / 10 || (res == Integer.MIN_VALUE / 10 && (currChar - '0') > -(Integer.MIN_VALUE % 10))) {
+//        return Integer.MIN_VALUE;
+//    }
+
+    public int myAtoi2(String str) {
+        int len = str.length();
+        char[] charArray = str.toCharArray();
+        int index = 0;
+        while (index < len && charArray[index] == ' ') {
+            index++;
+        }
+        if(index>=len){
+            return 0;
+        }
+        int flag = 1;
+        if (charArray[index] == '+') {
+            index++;
+        } else if (charArray[index] == '-') {
+            flag = -1;
+            index++;
+        }
+        int res = 0;
+        while (index < len) {
+            if (charArray[index] > '9' || charArray[index] < '0') {
+                break;
+            }
+            if (res > Integer.MAX_VALUE / 10 || (res == Integer.MAX_VALUE / 10 && (charArray[index] - '0') > Integer.MAX_VALUE % 10)) {
+                return Integer.MAX_VALUE;
+            }
+            if (res < Integer.MIN_VALUE / 10 || (res == Integer.MIN_VALUE / 10 && (charArray[index] - '0') > -(Integer.MIN_VALUE % 10))) {
+                return Integer.MIN_VALUE;
+            }
+            res = res * 10 + (charArray[index] - '0') * flag;
+            index++;
+        }
+        return res;
+    }
+
 
     public List<Integer> largestValues(TreeNode root) {
         List<Integer> ret = new ArrayList<>();

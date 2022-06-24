@@ -1,3 +1,5 @@
+import leetcode.Solution;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -10,5 +12,15 @@
  * @github : https://github.com/frankRenlf?tab=overview&from=2022-04-01&to=2022-04-30
  * @Description :
  */
+
+
+
 public class test {
+
+    static Solution sol = new Solution();
+
+    public static void main(String[] args) {
+        System.out.println(sol.myAtoi2("  -123"));
+    }
+
 }
