@@ -12,7 +12,7 @@ package leetcode;
  * @github : https://github.com/frankRenlf?tab=overview&from=2022-04-01&to=2022-04-30
  * @Description :
  */
-public class Solution {
+public class Solution implements inter{
 
     public int minCost2(int[][] costs) {
         int num = costs.length;
@@ -50,4 +50,8 @@ public class Solution {
         return ret;
     }
 
+    @Override
+    public int test(int n) {
+        return 0;
+    }
 }
