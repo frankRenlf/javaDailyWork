@@ -15,16 +15,27 @@ package leetcode;
 public class Solution {
 
     public int jump(int[] nums) {
-
+        int len = nums.length;
+        int count = 0;
+        int maxLen = 0;
+        int cur = 0;
+        for (int i = 0; i < len; i++) {
+            if (cur < i) {
+                count++;
+                cur = maxLen;
+            }
+            maxLen = Math.max(nums[i] + i, maxLen);
+        }
+        return count;
     }
 
     public boolean canJump(int[] nums) {
         int maxLen = 0;
         int len = nums.length;
         for (int i = 0; i < len; i++) {
-            if(maxLen>=i){
+            if (maxLen >= i) {
                 maxLen = Math.max(nums[i] + i, maxLen);
-            }else{
+            } else {
                 return false;
             }
         }
