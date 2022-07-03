@@ -13,6 +13,11 @@ package leetcode;
  * @Description :
  */
 public class Solution {
+
+    public int jump(int[] nums) {
+
+    }
+
     public boolean canJump(int[] nums) {
         int maxLen = 0;
         int len = nums.length;
