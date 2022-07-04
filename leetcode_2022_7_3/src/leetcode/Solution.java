@@ -1,5 +1,9 @@
 package leetcode;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -13,6 +17,30 @@ package leetcode;
  * @Description :
  */
 public class Solution {
+
+    public List<List<Integer>> minimumAbsDifference(int[] arr) {
+        List<List<Integer>> ret = new ArrayList<>();
+        Arrays.sort(arr);
+        int len = arr.length;
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i < len - 1; i++) {
+            int diff = arr[i + 1] - arr[i];
+            if (min > diff) {
+                min = diff;
+                ret.clear();
+                List<Integer> elem = new ArrayList<>();
+                elem.add(arr[i]);
+                elem.add(arr[i + 1]);
+                ret.add(elem);
+            } else if (min == diff) {
+                List<Integer> elem = new ArrayList<>();
+                elem.add(arr[i]);
+                elem.add(arr[i + 1]);
+                ret.add(elem);
+            }
+        }
+        return ret;
+    }
 
     public int jump(int[] nums) {
         int len = nums.length;
