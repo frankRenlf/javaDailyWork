@@ -1,5 +1,6 @@
 package leetcode;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -31,4 +32,32 @@ public class Solution {
         }
         return String.join(" ", words);
     }
+
+
+    List<String> ret = new ArrayList<>();
+
+    public List<String> generateParenthesis(int n) {
+        if (n <= 0) {
+            return ret;
+        }
+        getParenthesis("", n, n);
+        return ret;
+    }
+
+    private void getParenthesis(String str, int left, int right) {
+        if (left == 0 && right == 0) {
+            ret.add(str);
+            return;
+        }
+        if (left == right) {
+            getParenthesis(str + "(", left - 1, right);
+        }
+        if (left < right) {
+            if (left > 0) {
+                getParenthesis(str + "(", left - 1, right);
+            }
+            getParenthesis(str + ")", left, right - 1);
+        }
+    }
+
 }
