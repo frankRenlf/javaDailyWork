@@ -3,9 +3,7 @@ package success;
 import test1.Result;
 import test1.Vehicles;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -20,16 +18,22 @@ import java.util.List;
  * @Description :
  */
 public class settle_rec2 {
-    public static double single(double tw, Result result) {
+
+
+    static Map<Double, String> map = new HashMap<>();
+
+    public static double single(double tw, String s) {
         if (tw <= 0) {
+
             return 0;
         }
         List<Double> tmp = new ArrayList<>();
         for (int i = 0; i < vehicles.getVehicleList().size(); i++) {
-            result.setVehicleNum(vehicles.getVehicleList().get(i).getName()
-                    , result.getVehicleNum().get(vehicles.getVehicleList().get(i).getName())+1);
+            String ts = s + vehicles.getVehicleList().get(i).getName() + " ";
             tmp.add(vehicles.getVehicleList().get(i).getPrice()
-                    + single(tw - vehicles.getVehicleList().get(i).getWeight(), result));
+                    + single(tw - vehicles.getVehicleList().get(i).getWeight(),
+                    ts));
+            map.put(tmp.get(i), ts);
         }
         tmp.sort(new Comparator<Double>() {
             @Override
@@ -48,7 +52,13 @@ public class settle_rec2 {
         for (int i = 0; i < vehicles.getVehicleList().size(); i++) {
             result.setVehicleNum(vehicles.getVehicleList().get(i).getName(), 0);
         }
-        System.out.println(single(vehicles.getTotalWeight(), result));
+        result.setPrice(single(vehicles.getTotalWeight(), ""));
+        String[] s = map.get(single(vehicles.getTotalWeight(), "")).split(" ");
+
+        for (String x : s) {
+//            System.out.println(x);
+            result.setVehicleNum(x, result.getVehicleNum().get(x) + 1);
+        }
         System.out.println(result);
     }
 
