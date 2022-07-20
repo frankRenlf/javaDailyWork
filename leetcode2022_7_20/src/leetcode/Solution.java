@@ -1,5 +1,7 @@
 package leetcode;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -13,4 +15,9 @@ package leetcode;
  * @Description :
  */
 public class Solution {
+
+    public List<List<Integer>> shiftGrid(int[][] grid, int k) {
+
+    }
+
 }
