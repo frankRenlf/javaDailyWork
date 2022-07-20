@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dc9c7de1-1685-47e5-9c14-01332082352f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../2022_6_13_test1/src/success/settle_rec2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../2022_6_13_test1/src/success/settle_rec2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="dc9c7de1-1685-47e5-9c14-01332082352f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,7 +64,7 @@
       <updated>1657178353870</updated>
       <workItem from="1657178355186" duration="1794000" />
       <workItem from="1657250621612" duration="613000" />
-      <workItem from="1657269585541" duration="2517000" />
+      <workItem from="1657269585541" duration="2518000" />
     </task>
     <servers />
   </component>
