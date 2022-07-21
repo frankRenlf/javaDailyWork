@@ -112,4 +112,29 @@ public class Solution {
         return Arrays.copyOf(ret, index);
     }
 
+    public boolean judge(String str) {
+        // write code here
+        int start = 0;
+        int end = str.length() - 1;
+        while (start < end) {
+            if (str.charAt(start++) != str.charAt(end--)) return false;
+        }
+        return true;
+    }
+
+    public int sqrt(int x) {
+        // write code here
+        int start = 0;
+        int end = x / 2 + 1;
+        while (start < end) {
+            int mid = start + (end - start + 1) / 2;
+            if (mid > x / mid) {
+                end = mid - 1;
+            } else {
+                start = mid;
+            }
+        }
+        return start;
+    }
+
 }
