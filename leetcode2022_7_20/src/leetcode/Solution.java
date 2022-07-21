@@ -1,6 +1,8 @@
 package leetcode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -88,6 +90,26 @@ public class Solution {
             return null;
         }
         return root;
+    }
+
+
+    public int[] intersect(int[] nums1, int[] nums2) {
+        HashMap<Integer, Integer> hashMap = new HashMap<>();
+        for (int x : nums1) {
+            hashMap.put(x, hashMap.getOrDefault(x, 0) + 1);
+        }
+        int[] ret = new int[nums1.length];
+        int index = 0;
+        for (int j : nums2) {
+            if (hashMap.containsKey(j)) {
+                hashMap.replace(j, hashMap.get(j) - 1);
+                ret[index++] = j;
+                if (hashMap.get(j) == 0) {
+                    hashMap.remove(j);
+                }
+            }
+        }
+        return Arrays.copyOf(ret, index);
     }
 
 }
