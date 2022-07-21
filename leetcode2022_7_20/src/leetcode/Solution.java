@@ -57,7 +57,37 @@ public class Solution {
 
 
     public TreeNode pruneTree(TreeNode root) {
+        TreeNode ret = root;
+        rec(root);
+        return ret;
+    }
 
+    private boolean rec(TreeNode root) {
+        if (root == null) {
+            return false;
+        }
+        if (root.left == null && root.right == null) {
+            return root.val == 1;
+        }
+        if (!rec(root.left)) {
+            root.left = null;
+        }
+        if (!rec(root.right)) {
+            root.right = null;
+        }
+        return rec(root.left) || rec(root.right);
+    }
+
+    public TreeNode pruneTree2(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        root.left = pruneTree(root.left);
+        root.right = pruneTree(root.right);
+        if (root.left == null && root.right == null && root.val == 0) {
+            return null;
+        }
+        return root;
     }
 
 }
