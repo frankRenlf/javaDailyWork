@@ -55,4 +55,9 @@ public class Solution {
         return ret;
     }
 
+
+    public TreeNode pruneTree(TreeNode root) {
+
+    }
+
 }
