@@ -137,4 +137,50 @@ public class Solution {
         return start;
     }
 
+    public String truncateSentence(String s, int k) {
+        String[] tmp = s.split(" ");
+        String ret = "";
+        for (int i = 0; i < k; i++) {
+            ret += tmp[i];
+            if (i != k - 1) {
+                ret += " ";
+            }
+        }
+        return ret;
+    }
+
+    public int removeDuplicates(int[] nums) {
+        int end = nums.length - 1;
+        int k = end;
+        int start = 0;
+        while (start <= k) {
+            int tmp = start + 1;
+            while (nums[start] == nums[tmp]) {
+                tmp++;
+            }
+            for (int i = start + 1, j = tmp; j < end; i++, j++) {
+                nums[i] = nums[j];
+                k = i;
+            }
+            start++;
+        }
+        return k + 1;
+    }
+
+    public int removeDuplicates2(int[] nums) {
+        int n = nums.length;
+        if (n == 0) {
+            return 0;
+        }
+        int fast = 1, slow = 1;
+        while (fast < n) {
+            if (nums[fast] != nums[fast - 1]) {
+                nums[slow] = nums[fast];
+                ++slow;
+            }
+            ++fast;
+        }
+        return slow;
+    }
+
 }
