@@ -48,7 +48,7 @@ public class Solution {
 
     public boolean isUgly(int n) {
         int[] elem = new int[]{2, 3, 5};
-        while (n != 1) {
+        while (n > 1) {
             int i = 0;
             for (; i < elem.length; i++) {
                 if (n % elem[i] == 0) {
@@ -60,7 +60,7 @@ public class Solution {
                 return false;
             }
         }
-        return true;
+        return n == 1;
     }
 
 }
