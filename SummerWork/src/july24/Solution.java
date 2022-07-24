@@ -66,4 +66,25 @@ public class Solution {
         return guess(right) == 0 ? right : right - 1;
     }
 
+    public int distanceBetweenBusStops(int[] distance, int start, int destination) {
+        if (start == destination) {
+            return 0;
+        }
+        if (start > destination) {
+            int temp = start;
+            start = destination;
+            destination = temp;
+        }
+        int s1 = 0;
+        int s2 = 0;
+        for (int i = 0; i < distance.length; i++) {
+            if (i >= start && i < destination) {
+                s1 += distance[i];
+            } else {
+                s2 += distance[i];
+            }
+        }
+        return Math.min(s1, s2);
+    }
+
 }
