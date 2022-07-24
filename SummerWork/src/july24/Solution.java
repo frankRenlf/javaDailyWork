@@ -63,7 +63,7 @@ public class Solution {
                 left = mid + 1;
             }
         }
-        return left;
+        return guess(right) == 0 ? right : right - 1;
     }
 
 }
