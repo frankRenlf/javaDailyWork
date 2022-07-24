@@ -1,4 +1,4 @@
-import july23.Solution;
+
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,7 +15,12 @@ import july23.Solution;
 public class Test {
 
     public static void main(String[] args) {
-        Solution sol = new Solution();
+        july24.Solution sol = new july24.Solution();
+        System.out.println(sol.addDigits(38));
+    }
+
+    public static void main723(String[] args) {
+        july23.Solution sol = new july23.Solution();
         System.out.println(sol.isUgly(11));
     }
 
