@@ -31,4 +31,39 @@ public class Solution {
         return (num - 1) % 9 + 1;
     }
 
+    private int guess(int num) {
+        int key = 10;
+        return Integer.compare(key, num);
+    }
+
+    public int guessNumber(int n) {
+        int left = 0;
+        int right = n;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (guess(mid) == -1) {
+                right = mid - 1;
+            } else if (guess(mid) == 0) {
+                return mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+
+    public int guessNumber2(int n) {
+        int left = 0;
+        int right = n;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (guess(mid) == -1) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+
 }
