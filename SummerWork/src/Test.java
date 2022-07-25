@@ -1,4 +1,5 @@
 import leetcode.july725.CBTInserter;
+import leetcode.july725.Solution;
 import structure.TreeNode;
 
 /**
@@ -16,12 +17,15 @@ import structure.TreeNode;
 public class Test {
 
     public static void main(String[] args) {
-        TreeNode root = new TreeNode(0);
-        CBTInserter cbtInserter = new CBTInserter(root);
-        System.out.println(cbtInserter.insert(1));
-        System.out.println(cbtInserter.insert(2));
-        System.out.println(root);
-        System.out.println(cbtInserter.insert(3));
+//        TreeNode root = new TreeNode(0);
+//        CBTInserter cbtInserter = new CBTInserter(root);
+//        System.out.println(cbtInserter.insert(1));
+//        System.out.println(cbtInserter.insert(2));
+//        System.out.println(root);
+//        System.out.println(cbtInserter.insert(3));
+
+        leetcode.july725.Solution sol = new Solution();
+        System.out.println(sol.searchInsert(new int[]{1, 3, 5, 6}, 5));
     }
 
     public static void main725(String[] args) {

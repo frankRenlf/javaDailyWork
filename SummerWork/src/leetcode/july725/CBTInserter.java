@@ -17,6 +17,8 @@ import java.util.Queue;
  * @github : https://github.com/frankRenlf?tab=overview&from=2022-04-01&to=2022-04-30
  * @Description :
  */
+
+//速度还是很快的
 public class CBTInserter {
 
     TreeNode root;
