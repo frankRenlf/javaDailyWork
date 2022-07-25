@@ -1,4 +1,5 @@
-
+import leetcode.july725.CBTInserter;
+import structure.TreeNode;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,6 +16,15 @@
 public class Test {
 
     public static void main(String[] args) {
+        TreeNode root = new TreeNode(0);
+        CBTInserter cbtInserter = new CBTInserter(root);
+        System.out.println(cbtInserter.insert(1));
+        System.out.println(cbtInserter.insert(2));
+        System.out.println(root);
+        System.out.println(cbtInserter.insert(3));
+    }
+
+    public static void main725(String[] args) {
         july24.Solution sol = new july24.Solution();
         System.out.println(sol.addDigits(38));
     }
