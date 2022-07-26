@@ -4,6 +4,7 @@ import structure.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Random;
 
 
 /**
@@ -62,6 +63,11 @@ public class Solution {
             }
         }
         return left;
+    }
+
+    private boolean isBadVersion(int num) {
+        Random rd = new Random();
+        return rd.nextInt(num) == num;
     }
 
 }
