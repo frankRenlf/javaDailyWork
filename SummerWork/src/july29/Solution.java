@@ -93,7 +93,6 @@ public class Solution {
         return pre.next;
     }
 
-
     // 回来了, 还剩一题
     public ListNode removeZeroSumSublists(ListNode head) {
         Map<Integer, ListNode> map = new HashMap<>();
@@ -111,7 +110,6 @@ public class Solution {
         }
         return pre.next;
     }
-
 
 }
 
