@@ -1,6 +1,10 @@
 package july29;
 
+import structure.ListNode;
+
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -55,6 +59,59 @@ public class Solution {
     public boolean calCos(int[] v1, int[] v2) {
         return (v1[0] * v2[0] + v1[1] * v2[1]) == 0;
     }
+
+    // 吃饭去了,想看代码,可以看一下, leetcode 题目网址: https://leetcode.cn/problems/add-two-numbers/submissions/
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode pre = new ListNode(0);
+        ListNode cur = pre;
+        int carryBit = 0;
+        while (l1 != null && l2 != null) {
+            int curVal = l1.val + l2.val + carryBit;
+            cur.next = new ListNode((curVal) % 10);
+            carryBit = curVal / 10;
+            l1 = l1.next;
+            l2 = l2.next;
+            cur = cur.next;
+        }
+        while (l1 != null) {
+            int curVal = l1.val + carryBit;
+            cur.next = new ListNode((curVal) % 10);
+            carryBit = curVal / 10;
+            l1 = l1.next;
+            cur = cur.next;
+        }
+        while (l2 != null) {
+            int curVal = l2.val + carryBit;
+            cur.next = new ListNode((curVal) % 10);
+            carryBit = curVal / 10;
+            l2 = l2.next;
+            cur = cur.next;
+        }
+        if (carryBit == 1) {
+            cur.next = new ListNode(1);
+        }
+        return pre.next;
+    }
+
+
+    // 回来了, 还剩一题
+    public ListNode removeZeroSumSublists(ListNode head) {
+        Map<Integer, ListNode> map = new HashMap<>();
+        ListNode pre = new ListNode(0);
+        pre.next = head;
+        int sum = 0;
+        for (ListNode cur = pre; cur != null; cur = cur.next) {
+            sum += cur.val;
+            map.put(sum, cur);
+        }
+        sum = 0;
+        for (ListNode cur = pre; cur != null; cur = cur.next) {
+            sum += cur.val;
+            cur.next = map.get(sum).next;
+        }
+        return pre.next;
+    }
+
 
 }
 
