@@ -1,6 +1,12 @@
 package july31;
 
 import structure.ListNode;
+import structure.TreeNode;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 /**
  * Created with IntelliJ IDEA.
@@ -52,6 +58,38 @@ public class Solution {
             }
         }
         return pre.next;
+    }
+
+    public int maxLevelSum(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        int level = 1;
+        int ret = level;
+        int maxSum = root.val;
+        while (!queue.isEmpty()) {
+            int count = queue.size();
+            int sum = 0;
+            while (count > 0) {
+                TreeNode parent = queue.poll();
+                sum += parent.val;
+                if (parent.left != null) {
+                    queue.offer(parent.left);
+                }
+                if (parent.right != null) {
+                    queue.offer(parent.right);
+                }
+                count--;
+            }
+            if (sum > maxSum) {
+                ret = level;
+                maxSum = sum;
+            }
+            level++;
+        }
+        return ret;
     }
 
 }
