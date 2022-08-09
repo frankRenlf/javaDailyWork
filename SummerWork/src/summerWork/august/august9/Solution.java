@@ -14,6 +14,14 @@ package summerWork.august.august9;
  */
 public class Solution {
 
-    
+    public int minStartValue(int[] nums) {
+        int minVal = 0;
+        int sum = 0;
+        for (int x : nums) {
+            sum += x;
+            minVal = Math.min(minVal, sum);
+        }
+        return 1 - minVal;
+    }
 
 }
