@@ -1,6 +1,4 @@
-import leetcode.july725.CBTInserter;
-import leetcode.july725.Solution;
-import structure.TreeNode;
+import summerWork.july.july725.Solution;
 
 /**
  * Created with IntelliJ IDEA.
@@ -24,17 +22,17 @@ public class Test {
 //        System.out.println(root);
 //        System.out.println(cbtInserter.insert(3));
 
-        leetcode.july725.Solution sol = new Solution();
+        summerWork.july.july725.Solution sol = new Solution();
         System.out.println(sol.searchInsert(new int[]{1, 3, 5, 6}, 5));
     }
 
     public static void main725(String[] args) {
-        july24.Solution sol = new july24.Solution();
+        summerWork.july.july24.Solution sol = new summerWork.july.july24.Solution();
         System.out.println(sol.addDigits(38));
     }
 
     public static void main723(String[] args) {
-        july23.Solution sol = new july23.Solution();
+        summerWork.july.july23.Solution sol = new summerWork.july.july23.Solution();
         System.out.println(sol.isUgly(11));
     }
 
