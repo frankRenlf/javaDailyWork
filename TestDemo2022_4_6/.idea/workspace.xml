@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a73a2fcc-df7b-4e6e-95d4-f460612bbe7d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/TestDemo2022_4_6.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dailyTrain2022_6_1/out/production/dailyTrain2022_6_1/App$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../dailyTrain2022_6_1/out/production/dailyTrain2022_6_1/App$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dailyTrain2022_6_1/out/production/dailyTrain2022_6_1/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/../dailyTrain2022_6_1/out/production/dailyTrain2022_6_1/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dailyTrain2022_6_1/out/production/dailyTrain2022_6_1/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/../dailyTrain2022_6_1/out/production/dailyTrain2022_6_1/Person.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dailyTrain2022_6_1/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dailyTrain2022_6_1/src/App.java" afterDir="false" />
-    </list>
+    <list default="true" id="a73a2fcc-df7b-4e6e-95d4-f460612bbe7d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,7 +23,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/11195/IdeaProjects/javaDailyWork/dailyTrain2022_6_1",
+    "last_opened_file_path": "C:/Users/11195/IdeaProjects/javaCourse/Library management system(2022_4_10)",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -42,6 +36,7 @@
       <option name="presentableId" value="Default" />
       <updated>1654073573540</updated>
       <workItem from="1654073575063" duration="23000" />
+      <workItem from="1662278573769" duration="95000" />
     </task>
     <servers />
   </component>
