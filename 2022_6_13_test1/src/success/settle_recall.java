@@ -56,7 +56,7 @@ public class settle_recall {
 //        System.out.println(vehicles.getVehicleList());
 //        System.out.println(vehicles.getTotalWeight());
 //        System.out.println(lists);
-//        System.out.println(prices);
+        System.out.println(prices);
         int index = 0;
         for (int i = 1; i < lists.size(); i++) {
             if (prices.get(i) < prices.get(index)) {
