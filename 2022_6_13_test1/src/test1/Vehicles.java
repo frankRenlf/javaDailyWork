@@ -140,6 +140,14 @@ public class Vehicles {
     private List<Vehicle> vehicleList;
     private double totalWeight;
 
+    public void setVehicleList(List<Vehicle> vehicleList) {
+        this.vehicleList = vehicleList;
+    }
+
+    public void setTotalWeight(double totalWeight) {
+        this.totalWeight = totalWeight;
+    }
+
     public double getTotalWeight() {
         return totalWeight;
     }
